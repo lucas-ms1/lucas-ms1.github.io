@@ -9,10 +9,15 @@
     nav a { margin-right: 12px; }
     .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin: 16px 0; }
     .muted { color: #555; }
+    ul { margin: 8px 0 0 18px; }
+    .pill { display:inline-block; padding: 2px 10px; border: 1px solid #ddd; border-radius: 999px; margin: 6px 6px 0 0; font-size: 0.9rem; }
+    .row { display:flex; flex-wrap:wrap; gap:10px; }
   </style>
 </head>
 <body>
   <h1>Lucas Sneller</h1>
+  <p class="muted">Political Science & Philosophy (Economics minor) • Research: mathematical finance, Mean Field Games, market microstructure</p>
+
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -22,16 +27,66 @@
 
   <section id="about" class="card">
     <h2>About</h2>
-    <p>Short bio (2–4 sentences): what you study/build, key interests, and what you’re looking for.</p>
+    <p>
+      I’m a senior at Miami University studying Political Science and Philosophy with an Economics minor, focused on rigorous
+      mathematical modeling in finance and economics. My current work uses Mean Field Games and filtering (e.g., Kalman/EKF)
+      to study belief dynamics, mispricing, and sentiment feedback in equity markets, alongside empirical analysis using U.S. market data.
+      I’m looking for research roles and graduate programs in quantitative economics/finance, stochastic control, and applied math.
+    </p>
+    <div class="row" aria-label="Interests">
+      <span class="pill">Mean Field Games</span>
+      <span class="pill">Stochastic Control</span>
+      <span class="pill">Market Microstructure</span>
+      <span class="pill">Behavioral Finance</span>
+      <span class="pill">Filtering (Kalman/EKF)</span>
+      <span class="pill">Python • LaTeX</span>
+    </div>
   </section>
 
   <section id="projects" class="card">
     <h2>Projects</h2>
+    <p class="muted">Selected work (more details and writeups coming soon).</p>
 
     <div>
-      <h3>Project Title</h3>
-      <p class="muted">One-line description.</p>
-      <p><a href="https://github.com/lucas-ms1/REPO">GitHub repo</a></p>
+      <h3>Mean Field Game Modeling of Overconfidence in Financial Markets</h3>
+      <p class="muted">
+        A simulation framework combining Mean Field Games with filtering and heterogeneous agents to study endogenous overconfidence,
+        sentiment cascades, and mispricing across market regimes.
+      </p>
+      <p>
+        <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Retail Trading Volume and Pricing Inefficiencies (April 2025 Event Study)</h3>
+      <p class="muted">
+        Empirical project analyzing retail-driven volume shocks and subsequent pricing inefficiencies, designed to connect real data patterns
+        to MFG-style mechanism models.
+      </p>
+      <p>
+        <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Academic Skepticism, Imitation Mechanisms, and Cultural Homogenization</h3>
+      <p class="muted">
+        Philosophy seminar paper connecting Academic Skepticism to imitation-based dynamics and technology-driven cultural convergence.
+      </p>
+      <p>
+        <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Turnout and Trust: Strengthening Democratic Responsiveness Through Local Participation</h3>
+      <p class="muted">
+        Policy brief proposing a Local Deliberation Day and expanded local direct democracy to improve turnout and institutional trust.
+      </p>
+      <p>
+        <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
+      </p>
     </div>
 
   </section>
@@ -39,12 +94,14 @@
   <section id="resume" class="card">
     <h2>Resume</h2>
     <p><a href="resume.pdf">Download resume (PDF)</a></p>
+    <p class="muted">If the link 404s, rename your uploaded PDF to <strong>resume.pdf</strong> in the repository.</p>
   </section>
 
   <section id="contact" class="card">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:YOUR@email.com">YOUR@email.com</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/YOURHANDLE">linkedin.com/in/YOURHANDLE</a></p>
+    <p class="muted">Optional: add GitHub, Google Scholar, and a CV link once available.</p>
   </section>
 </body>
 </html>
