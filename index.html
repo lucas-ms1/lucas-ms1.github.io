@@ -60,11 +60,53 @@
     <h2>Projects</h2>
     <p class="muted">Selected work (more details and writeups coming soon).</p>
 
+  <section id="projects" class="card">
+    <h2>Projects & Research</h2>
+    <p class="muted">Selected research and technical work.</p>
+
+    <div>
+      <h3>Double Machine Learning for Dynamic Panel Data</h3>
+      <p class="muted">
+        Developed a DML framework for inference in partially linear dynamic panels with high-dimensional controls. 
+        Proposed a <strong>blocked-time cross-fitting</strong> scheme with time buffers to respect serial dependence, 
+        combined with Neyman-orthogonal scores to eliminate regularization bias from ML nuisance estimators 
+        (e.g., Lasso, Random Forests). 
+      </p>
+      <p>
+        <span class="pill">Econometrics</span> <span class="pill">DML</span> <span class="pill">Python</span>
+      </p>
+    </div>
+
+    <div>
+      <h3>Bargaining Unit SOC Classification Project</h3>
+      <p class="muted">
+        Automated NLP pipeline to classify NLRB bargaining unit descriptions into Standard Occupational Classification (SOC) groups. 
+        Integrates <strong>Hybrid Retrieval</strong> (BM25 + Sentence Transformers) and LLM-based multi-label classification. 
+        Uses <strong>Prediction-Powered Inference (PPI)</strong> to correct model bias and estimate temporal prevalence trends.
+      </p>
+      <p>
+        <a href="https://github.com/lucas-ms1">GitHub Repo</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>Intermediary Constraints & Asymmetric Sentiment Transmission</h3>
+      <p class="muted">
+        Investigated how intermediary balance-sheet health acts as an "on/off switch" for sentiment-driven price crashes. 
+        Estimated an endogenous <strong>two-state Markov Regime Switching (MRS)</strong> model to identify constrained periods, 
+        documenting that negative household sentiment triggers sharp reversals in high-inventory-risk stocks (High DTC) 
+        specifically when liquidity providers are capital-constrained. 
+      </p>
+      <p>
+        <span class="pill">Market Microstructure</span> <span class="pill">Asset Pricing</span> <span class="pill">STATA/R</span>
+      </p>
+    </div>
+
     <div>
       <h3>Butler Co. Parks — Economic Impact Report</h3>
       <p class="muted">
-        Spatial econometric analysis quantifying the economic and health impacts of public parks using multiple datasets and methods.
-        Integrates GIS, time-series, health, and economic data to estimate property value capitalization and health outcome associations.
+        Spatial econometric analysis quantifying the economic and health impacts of public parks. 
+        Integrates GIS, time-series, and health data to estimate property value capitalization.
       </p>
       <p>
         <a href="https://github.com/lucas-ms1/Butler-Co-Parks-Economic-Impact-Report">GitHub repo</a>
@@ -74,58 +116,25 @@
     <div>
       <h3>DAAHO Metadata Pipeline</h3>
       <p class="muted">
-        AI-powered metadata extraction pipeline for the DAAHO digital archive. Extracts OCR text and LOC15-compliant metadata
-        from historical documents using GPT-4o, with controlled vocabulary validation, an interactive review interface, and CSV export.
+        AI-powered extraction pipeline for historical archives. Uses GPT-4o for OCR text processing and 
+        LOC15-compliant metadata extraction with controlled vocabulary validation.
       </p>
       <p>
         <a href="https://github.com/lucas-ms1/daaho-metadata-pipeline">GitHub repo</a>
       </p>
     </div>
 
-   
-
     <div>
-      <h3>Belief Regimes and the Macroeconomy</h3>
+      <h3>Mean Field Game Modeling of Overconfidence</h3>
       <p class="muted">
-        Agent-based simulation investigating how network topology (Erdos-Renyi vs. Barabasi-Albert) influences consensus formation.
-        Compares DeGroot and Bayesian learning models to quantify the trade-off between information aggregation speed and 
-        accuracy in complex social graphs.
+        Simulation framework combining Mean Field Games with filtering (Kalman/EKF) and heterogeneous agents 
+        to study endogenous overconfidence and sentiment cascades across market regimes.
       </p>
       <p>
         <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
       </p>
     </div>
-
-    <div>
-      <h3>Mean Field Game Modeling of Overconfidence in Financial Markets</h3>
-      <p class="muted">
-        A simulation framework combining Mean Field Games with filtering and heterogeneous agents to study endogenous overconfidence,
-        sentiment cascades, and mispricing across market regimes.
-      </p>
-      <p>
-        <a href="https://github.com/lucas-ms1">GitHub (repo link TBD)</a>
-      </p>
-    </div>
-
-    <div>
-      <h3>Academic Skepticism, Imitation Mechanisms, and Cultural Homogenization</h3>
-      <p class="muted">
-        Philosophy seminar paper connecting Academic Skepticism to imitation-based dynamics and technology-driven cultural convergence.
-      </p>
-      <p>
-        <a href="skepticism_paper.pdf">Download Paper (PDF)</a>
-      </p>
-    </div>
-
-    <div>
-      <h3>Turnout and Trust: Strengthening Democratic Responsiveness Through Local Participation</h3>
-      <p class="muted">
-        Policy brief proposing a Local Deliberation Day and expanded local direct democracy to improve turnout and institutional trust.
-      </p>
-      <p>
-        <a href="policy_brief.pdf">Download Policy Brief (PDF)</a>
-      </p>
-    </div>
+  </section>
 
   </section>
 
