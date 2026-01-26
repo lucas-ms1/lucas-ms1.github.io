@@ -11,12 +11,16 @@
 
   <style>
     :root {
-      --primary: #1a1a1a;
-      --accent: #0056b3; /* Professional Research Blue */
-      --muted: #666;
-      --bg: #fdfdfd;
-      --card-bg: #ffffff;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      /* New Earthy Palette */
+      --primary: #2d332a;        /* Deep Forest Charcoal */
+      --accent: #4a6741;         /* Sage/Forest Green */
+      --accent-hover: #3a5233;   /* Darker Green for hover */
+      --muted: #6b705c;          /* Olive Grey */
+      --bg: #f8f9f5;             /* Off-white (Bone) */
+      --card-bg: #ffffff;        /* Pure white for contrast */
+      --nav-bg: #e9ede5;         /* Soft tea green */
+      --pill-bg: #f1f3ec;        /* Light sage wash */
+      --shadow: 0 4px 20px rgba(45, 51, 42, 0.08);
     }
 
     body { 
@@ -32,14 +36,15 @@
     h1, h2, h3 { 
       font-family: 'Playfair Display', serif; 
       margin-top: 0;
+      color: var(--primary);
     }
 
     a { color: var(--accent); text-decoration: none; transition: 0.2s; }
-    a:hover { text-decoration: underline; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
 
     /* Navigation */
     nav { 
-      background: #f1f3f5;
+      background: var(--nav-bg);
       padding: 8px;
       border-radius: 50px;
       display: inline-flex;
@@ -57,7 +62,7 @@
 
     nav a:hover { 
       background: #fff; 
-      color: var(--primary); 
+      color: var(--accent); 
       text-decoration: none;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
@@ -65,7 +70,7 @@
     /* Cards */
     .card { 
       background: var(--card-bg);
-      border: 1px solid #eee;
+      border: 1px solid #e1e5db;
       border-radius: 16px; 
       padding: 32px; 
       margin: 24px 0; 
@@ -75,7 +80,7 @@
     .project-item {
       padding-bottom: 24px;
       margin-bottom: 24px;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f2ed;
     }
 
     .project-item:last-child {
@@ -89,12 +94,12 @@
     .pill { 
       display: inline-block; 
       padding: 4px 12px; 
-      background: #f0f4f8;
-      border: 1px solid #d1d9e0;
+      background: var(--pill-bg);
+      border: 1px solid #d8decf;
       border-radius: 999px; 
       margin: 8px 6px 0 0; 
       font-size: 0.85rem; 
-      color: #444;
+      color: var(--muted);
       font-weight: 500;
     }
 
@@ -110,7 +115,7 @@
 
     iframe {
       border-radius: 8px;
-      border: 1px solid #eee;
+      border: 1px solid #e1e5db;
       margin-top: 15px;
     }
 
