@@ -5,15 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Library | Lucas Sneller</title>
   <style>
-    body { font-family: system-ui, Arial; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
-    nav a { margin-right: 12px; }
-    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin: 16px 0; }
+    body { font-family: system-ui, -apple-system, Arial; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.55; color: #333; }
+    nav { margin-bottom: 24px; }
+    nav a { margin-right: 12px; text-decoration: none; color: #0066cc; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 24px; margin: 16px 0; background: #fff; }
     .muted { color: #555; }
-    .book-list { list-style: none; padding: 0; }
-    .book-item { margin-bottom: 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+    .book-list { list-style: none; padding: 0; margin: 0; }
+    .book-item { margin-bottom: 10px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; display: flex; flex-direction: column; }
     .book-item:last-child { border-bottom: none; }
-    .author { color: #666; font-size: 0.95rem; }
-    h2 { border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 0; }
+    .author { color: #666; font-size: 0.9rem; }
+    h2 { border-bottom: 2px solid #eee; padding-bottom: 8px; margin-top: 0; color: #222; }
+    h1 { margin-bottom: 8px; }
+    @media (min-width: 600px) {
+      .book-item { flex-direction: row; justify-content: space-between; align-items: baseline; }
+      .author { margin-left: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -26,55 +33,120 @@
     <a href="#math">Mathematics</a>
     <a href="#economics">Economics</a>
     <a href="#philosophy">Philosophy</a>
-    <a href="#other">General Interest</a>
+    <a href="#general">General & Literature</a>
   </nav>
 
   <section id="math" class="card">
     <h2>Mathematics & Stochastic Processes</h2>
     <ul class="book-list">
-      <li class="book-item"><strong>Functional Analysis, Sobolev Spaces and Partial Differential Equations</strong> <span class="author">— Haim Brezis</span></li>
-      <li class="book-item"><strong>Stochastic Differential Equations</strong> <span class="author">— Bernt Øksendal</span></li>
-      <li class="book-item"><strong>Measure, Integration & Real Analysis</strong> <span class="author">— Sheldon Axler</span></li>
-      <li class="book-item"><strong>Probability Theory</strong> <span class="author">— Achim Klenke</span></li>
-      <li class="book-item"><strong>Brownian Motion, Martingales, and Stochastic Calculus</strong> <span class="author">— Jean-François Le Gall</span></li>
-      <li class="book-item"><strong>Real Mathematical Analysis</strong> <span class="author">— Charles Chapman Pugh</span></li>
+      <li class="book-item"><strong>A Primer of Lebesgue Integration</strong> <span class="author">— H.S. Bear</span></li>
+      <li class="book-item"><strong>A Treatise on Acoustic Radiation Volume II</strong> <span class="author">— S. Hanish</span></li>
+      <li class="book-item"><strong>All the Math You Missed</strong> <span class="author">— Thomas A. Garrity</span></li>
+      <li class="book-item"><strong>Analysis I</strong> <span class="author">— Terence Tao</span></li>
+      <li class="book-item"><strong>An Introduction to Harmonic Analysis</strong> <span class="author">— Yitzhak Katznelson</span></li>
       <li class="book-item"><strong>Book of Proof</strong> <span class="author">— Richard Hammack</span></li>
+      <li class="book-item"><strong>Brownian Motion, Martingales, and Stochastic Calculus</strong> <span class="author">— Jean-François Le Gall</span></li>
+      <li class="book-item"><strong>Foundations of Point Set Theory</strong> <span class="author">— R.L. Moore</span></li>
+      <li class="book-item"><strong>Functional Analysis</strong> <span class="author">— K. Yosida</span></li>
+      <li class="book-item"><strong>Functional Analysis, Sobolev Spaces and Partial Differential Equations</strong> <span class="author">— Haim Brezis</span></li>
+      <li class="book-item"><strong>Introductory Discrete Mathematics</strong> <span class="author">— V.K. Balakrishnan</span></li>
+      <li class="book-item"><strong>Linear Algebra Done Right</strong> <span class="author">— Sheldon Axler</span></li>
+      <li class="book-item"><strong>Locally Convex Spaces</strong> <span class="author">— François Treves</span></li>
+      <li class="book-item"><strong>Mathematical Control Theory of Coupled PDEs</strong> <span class="author">— Irena Lasiecka</span></li>
+      <li class="book-item"><strong>Measure, Integration & Real Analysis</strong> <span class="author">— Sheldon Axler</span></li>
+      <li class="book-item"><strong>Methods for Solving Systems of Nonlinear Equations</strong> <span class="author">— Werner C. Rheinboldt</span></li>
+      <li class="book-item"><strong>Model Theory and Its Applications</strong> <span class="author">— Christian Jensen</span></li>
+      <li class="book-item"><strong>On Formally Undecidable Propositions</strong> <span class="author">— Kurt Gödel</span></li>
+      <li class="book-item"><strong>Probability Theory: A Comprehensive Course</strong> <span class="author">— Achim Klenke</span></li>
+      <li class="book-item"><strong>Problem-Solving Through Problems</strong> <span class="author">— Loren C. Larson</span></li>
+      <li class="book-item"><strong>Real Mathematical Analysis</strong> <span class="author">— Charles Chapman Pugh</span></li>
+      <li class="book-item"><strong>Semi-Groups of Operators and Approximation</strong> <span class="author">— Butzer & Berens</span></li>
+      <li class="book-item"><strong>Sequential Analysis</strong> <span class="author">— Abraham Wald</span></li>
+      <li class="book-item"><strong>Series of Irregular Observations</strong> <span class="author">— Azencott & Dacunha-Castelle</span></li>
+      <li class="book-item"><strong>Spectral Analysis and Time Series</strong> <span class="author">— M.B. Priestley</span></li>
+      <li class="book-item"><strong>Stochastic Differential Equations</strong> <span class="author">— Bernt Øksendal</span></li>
+      <li class="book-item"><strong>Stochastic Storage Processes</strong> <span class="author">— N.U. Prabhu</span></li>
+      <li class="book-item"><strong>The Lyapunov Matrix Equation in System Stability and Control</strong> <span class="author">— Gajic & Qureshi</span></li>
+      <li class="book-item"><strong>The Real Numbers</strong> <span class="author">— John Stillwell</span></li>
+      <li class="book-item"><strong>Theory and Examples of Point-Set Topology</strong> <span class="author">— John Greever</span></li>
     </ul>
   </section>
 
   <section id="economics" class="card">
     <h2>Economics & Game Theory</h2>
     <ul class="book-list">
-      <li class="book-item"><strong>Theory of Games and Economic Behavior</strong> <span class="author">— John von Neumann & Oskar Morgenstern</span></li>
+      <li class="book-item"><strong>A Benchmark Approach to Quantitative Finance</strong> <span class="author">— Platen & Heath</span></li>
+      <li class="book-item"><strong>Competitive Agents in Certain and Uncertain Markets</strong> <span class="author">— Robert Chambers</span></li>
       <li class="book-item"><strong>Econometric Analysis</strong> <span class="author">— William H. Greene</span></li>
-      <li class="book-item"><strong>Security Analysis</strong> <span class="author">— Benjamin Graham & David Dodd</span></li>
+      <li class="book-item"><strong>Economic Growth and Development</strong> <span class="author">— Sibani Das et al.</span></li>
+      <li class="book-item"><strong>Economic Organizations as Games</strong> <span class="author">— Binmore & Dasgupta</span></li>
+      <li class="book-item"><strong>Economic Theory and Exhaustible Resources</strong> <span class="author">— Dasgupta & Heal</span></li>
+      <li class="book-item"><strong>Equilibrium Analysis</strong> <span class="author">— Hildenbrand & Kirman</span></li>
+      <li class="book-item"><strong>Existence and Optimality of Competitive Equilibria</strong> <span class="author">— Aliprantis et al.</span></li>
+      <li class="book-item"><strong>Game Theory</strong> <span class="author">— Guillermo Owen</span></li>
+      <li class="book-item"><strong>Global Rebalancing</strong> <span class="author">— Faruqee & Srinivasan</span></li>
+      <li class="book-item"><strong>International Economics</strong> <span class="author">— Thomas Pugel</span></li>
+      <li class="book-item"><strong>Introduction to Dynamic Economic Models</strong> <span class="author">— Ferguson & Lim</span></li>
+      <li class="book-item"><strong>Learning to Become Rational</strong> <span class="author">— Michael Zenner</span></li>
       <li class="book-item"><strong>Macroeconomics</strong> <span class="author">— N. Gregory Mankiw</span></li>
+      <li class="book-item"><strong>Mean Field Games</strong> <span class="author">— Yves Achdou et al.</span></li>
       <li class="book-item"><strong>Principles of Microeconomics</strong> <span class="author">— Dirk Mateer & Lee Coppock</span></li>
+      <li class="book-item"><strong>Principles of Political Economy</strong> <span class="author">— John Stuart Mill</span></li>
+      <li class="book-item"><strong>Probabilistic Theory of Mean Field Games (Vol I & II)</strong> <span class="author">— Carmona & Delarue</span></li>
+      <li class="book-item"><strong>Quiet Politics and Business Power</strong> <span class="author">— Pepper Culpepper</span></li>
+      <li class="book-item"><strong>Rationality and Equilibrium</strong> <span class="author">— Aliprantis et al.</span></li>
+      <li class="book-item"><strong>Rethinking Bank Regulation</strong> <span class="author">— James Barth et al.</span></li>
+      <li class="book-item"><strong>Security Analysis</strong> <span class="author">— Benjamin Graham & David Dodd</span></li>
+      <li class="book-item"><strong>Static Demand Theory</strong> <span class="author">— Donald Katzner</span></li>
+      <li class="book-item"><strong>Stochastic Optimal Control & the U.S. Financial Debt Crisis</strong> <span class="author">— Jerome Stein</span></li>
+      <li class="book-item"><strong>The Theory of Monetary Institutions</strong> <span class="author">— Lawrence H. White</span></li>
+      <li class="book-item"><strong>Theory of Games and Economic Behavior</strong> <span class="author">— von Neumann & Morgenstern</span></li>
+      <li class="book-item"><strong>Trading Volatility</strong> <span class="author">— Colin Bennett</span></li>
     </ul>
   </section>
 
   <section id="philosophy" class="card">
-    <h2>Philosophy & Social Science</h2>
+    <h2>Philosophy & Political Science</h2>
     <ul class="book-list">
+      <li class="book-item"><strong>Anti-Education</strong> <span class="author">— Friedrich Nietzsche</span></li>
+      <li class="book-item"><strong>Community Power & Political Theory</strong> <span class="author">— Nelson Polsby</span></li>
+      <li class="book-item"><strong>Comparative Political Economy</strong> <span class="author">— Ben Clift</span></li>
       <li class="book-item"><strong>Critique of Pure Reason</strong> <span class="author">— Immanuel Kant</span></li>
+      <li class="book-item"><strong>Democracy in America</strong> <span class="author">— Alexis de Tocqueville</span></li>
+      <li class="book-item"><strong>For Love of Country?</strong> <span class="author">— Martha Nussbaum</span></li>
+      <li class="book-item"><strong>Meditations</strong> <span class="author">— Marcus Aurelius</span></li>
+      <li class="book-item"><strong>Political & Moral Philosophy</strong> <span class="author">— Steven M. Cahn</span></li>
+      <li class="book-item"><strong>Prolegomena to Any Future Metaphysics</strong> <span class="author">— Immanuel Kant</span></li>
+      <li class="book-item"><strong>State and Revolution</strong> <span class="author">— Vladimir Lenin</span></li>
+      <li class="book-item"><strong>The Age of Absolutism</strong> <span class="author">— Max Beloff</span></li>
+      <li class="book-item"><strong>The Bell Curve</strong> <span class="author">— Herrnstein & Murray</span></li>
+      <li class="book-item"><strong>The Fourth Turning</strong> <span class="author">— Strauss & Howe</span></li>
+      <li class="book-item"><strong>The Hellenic Philosophers (Vol I & II)</strong> <span class="author">— Long & Sedley</span></li>
       <li class="book-item"><strong>The Myth of Sisyphus</strong> <span class="author">— Albert Camus</span></li>
       <li class="book-item"><strong>The Stranger</strong> <span class="author">— Albert Camus</span></li>
-      <li class="book-item"><strong>Why Liberalism Failed</strong> <span class="author">— Patrick Deneen</span></li>
       <li class="book-item"><strong>The Upswing</strong> <span class="author">— Robert Putnam</span></li>
-      <li class="book-item"><strong>The Fourth Turning</strong> <span class="author">— Strauss & Howe</span></li>
-      <li class="book-item"><strong>Zoopolis: A Political Theory of Animal Rights</strong> <span class="author">— Donaldson & Kymlicka</span></li>
-      <li class="book-item"><strong>The Bell Curve</strong> <span class="author">— Herrnstein & Murray</span></li>
+      <li class="book-item"><strong>Why Liberalism Failed</strong> <span class="author">— Patrick Deneen</span></li>
+      <li class="book-item"><strong>Zoopolis</strong> <span class="author">— Donaldson & Kymlicka</span></li>
     </ul>
   </section>
 
-  <section id="other" class="card">
-    <h2>General Interest</h2>
+  <section id="general" class="card">
+    <h2>General Interest & Literature</h2>
     <ul class="book-list">
-      <li class="book-item"><strong>The Body Keeps the Score</strong> <span class="author">— Bessel van der Kolk</span></li>
-      <li class="book-item"><strong>The Fate of the Earth</strong> <span class="author">— Jonathan Schell</span></li>
-      <li class="book-item"><strong>The Tao of Physics</strong> <span class="author">— Fritjof Capra</span></li>
+      <li class="book-item"><strong>A Very Short Introduction Series (Banking, Economics, etc.)</strong> <span class="author">— Oxford</span></li>
+      <li class="book-item"><strong>Adventures of Huckleberry Finn</strong> <span class="author">— Mark Twain</span></li>
+      <li class="book-item"><strong>Bartleby and Benito Cereno</strong> <span class="author">— Herman Melville</span></li>
+      <li class="book-item"><strong>Bayesian Nonparametric Data Analysis</strong> <span class="author">— Müller et al.</span></li>
+      <li class="book-item"><strong>Never Let Me Go</strong> <span class="author">— Kazuo Ishiguro</span></li>
+      <li class="book-item"><strong>Parallel Distributed Processing</strong> <span class="author">— McClelland & Rumelhart</span></li>
       <li class="book-item"><strong>Siddhartha</strong> <span class="author">— Hermann Hesse</span></li>
+      <li class="book-item"><strong>Statistical Inference</strong> <span class="author">— Casella & Berger</span></li>
+      <li class="book-item"><strong>The Body Keeps the Score</strong> <span class="author">— Bessel van der Kolk</span></li>
       <li class="book-item"><strong>The Eye of Minds</strong> <span class="author">— James Dashner</span></li>
+      <li class="book-item"><strong>The Fate of the Earth</strong> <span class="author">— Jonathan Schell</span></li>
+      <li class="book-item"><strong>The Geography of Nowhere</strong> <span class="author">— James Howard Kunstler</span></li>
+      <li class="book-item"><strong>The Tao of Physics</strong> <span class="author">— Fritjof Capra</span></li>
+      <li class="book-item"><strong>The World Economy: History & Prospect</strong> <span class="author">— W.W. Rostow</span></li>
     </ul>
   </section>
 
