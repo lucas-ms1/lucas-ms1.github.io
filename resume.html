@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume | Lucas Sneller</title>
+  <style>
+    body { font-family: system-ui, Arial; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
+    nav a { margin-right: 12px; }
+    .muted { color: #555; }
+    .resume-container { 
+      border: 1px solid #ddd; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      margin-top: 20px;
+      height: 1100px; /* High enough for a standard A4/Letter page */
+    }
+    iframe { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+
+  <h1>Resume</h1>
+  <p class="muted">Senior at Miami University focusing on mathematical finance and stochastic modeling.</p>
+
+  <nav>
+    <a href="index.html">← Home</a>
+    <a href="resume.pdf" download>Download PDF</a>
+  </nav>
+
+  <div class="resume-container">
+    <iframe src="resume.pdf" title="Lucas Sneller Resume">
+      <p>Your browser doesn't support PDF viewing. <a href="resume.pdf">Click here to download it instead.</a></p>
+    </iframe>
+  </div>
+
+  <footer style="margin-top: 40px; text-align: center;">
+    <p class="muted">&copy; 2026 Lucas Sneller</p>
+  </footer>
+
+</body>
+</html>
