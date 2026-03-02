@@ -13,7 +13,7 @@
   :root {
     /* Deep Earthy Palette */
     --primary: #1b261b;        /* Deep Forest Green-Black */
-    --accent: #2d5a27;          /* Rich Leaf Green */
+    --accent: #2d5a27;         /* Rich Leaf Green */
     --accent-hover: #1e3d1a;   /* Darker Woods Green */
     --muted: #4f5d4e;          /* Muted Moss Grey */
     --bg: #f2f4ef;             /* Light Sage/Mist (Off-white) */
@@ -125,6 +125,36 @@
     background: white;
   }
 
+  .info-note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--accent);
+    background: #f8faf6;
+    color: var(--muted);
+    font-size: 0.93rem;
+    border-radius: 8px;
+  }
+
+  .section-note {
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 0 0 28px 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+
+  .paper-note {
+    margin: 12px 0 14px 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--accent);
+    background: #f8faf6;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
   @media (max-width: 600px) {
     body { margin: 30px auto; }
     .card { padding: 24px; }
@@ -153,6 +183,11 @@
     <p>
       I am a senior at Miami University, where my studies in political science, philosophy, and economics have converged into a fascination with the "micro-to-macro" problem: how individual behavioral tendencies and personal biases aggregate into the complex, often unpredictable outcomes of dynamical systems. While my background began with foundational questions of coordination and legitimacy, I have since transitioned toward a technical framework utilizing mean field games, game theory, and rigorous mathematical modeling to explore why systems like financial markets and political landscapes fail to process information efficiently. My research approach is grounded in high-dimensional econometrics and computational modeling, focused on building modular pipelines that translate unstructured data into reproducible insights. Ultimately, I aim to apply this toolkit in a professional research setting as a pre-doctoral assistant before pursuing a PhD to further develop the methodological tools necessary for navigating our increasingly interconnected, high-dimensional world.
     </p>
+
+    <div class="info-note">
+      I am deeply interested in the research possibilities opened up by AI, and I think the technology is genuinely revolutionary for learning, experimentation, and productivity. I enjoy testing new research workflows assisted by these tools in different ways—whether through IDE environments like Codex and Cursor, review and revision tools like refine.ink, or search and discovery tools like Google Scholar Labs. Used carefully, they have unlocked entire literatures, methods, and workflows that would have been much harder for me to access or iterate on quickly. I see these systems as research aids that expand what I can explore, while the judgment, direction, interpretation, and responsibility for the work remain my own. If you are curious, feel free to ask me about how I use AI in my workflow, what tools I use most, or how it has helped boost my productivity.
+    </div>
+
     <div aria-label="Interests">
       <span class="pill">Mean Field Games</span>
       <span class="pill">Stochastic Control</span>
@@ -172,7 +207,7 @@
     </div>
   </section>
 
- <section id="projects" class="card">
+  <section id="projects" class="card">
     <h2>Projects & Research</h2>
     <p class="muted" style="margin-bottom: 30px;">Selected research and technical work.</p>
     
@@ -214,13 +249,19 @@
       </div>
     </div>
 
-    <!-- UPDATED: points to the newest renamed PDF: Lucas_Sneller_MFG_Overconfidence.pdf -->
-    <!-- NOTE: the ?v=... cache-busts GitHub Pages/browser caching if you replaced the file contents recently -->
+    <div class="section-note">
+      Outside of my classes and research assistant work, I pursue my own independent interests in applied probability, statistical inference, stochastic analysis, and related areas of mathematical finance and econometrics. Reading recent literature often inspires me to try tackling problems that I find interesting on my own. The working papers below are part of that independent and completely personal research process, and AI tools were used in a supporting role for brainstorming, implementation, debugging, and editing. These papers are meant to display my interests and love for research, not to present polished, peer-reviewed, or institutionally sponsored results.
+    </div>
+
     <div class="project-item">
       <h3>(Working Paper): Mean Field Game Modeling of Overconfidence</h3>
       <p class="muted">
         Simulation framework combining Mean Field Games with filtering (Kalman/EKF) and heterogeneous agents to study endogenous overconfidence.
       </p>
+
+      <div class="paper-note">
+        Independent working paper. AI tools were used in a supporting capacity for coding, debugging, and exposition; the project direction, interpretation, and any remaining errors are my own. I welcome comments or criticisms on the paper itself, and I am also happy to talk about the AI-assisted research process behind it.
+      </div>
 
       <p>
         <a href="Lucas_Sneller_MFG_Overconfidence.pdf?v=2026-02-14" download style="font-weight: 600;">[Download PDF]</a>
@@ -267,6 +308,11 @@
       <p class="muted">
         Developed a DML framework for inference in partially linear dynamic panels. Proposed a blocked-time cross-fitting scheme with time buffers to respect serial dependence.
       </p>
+
+      <div class="paper-note">
+        Independent working paper. This project grew out of my own reading in econometrics and statistical inference; AI tools were used for limited implementation and editing support, while the framing and responsibility for the work remain my own. Comments and criticisms are very welcome, and I am happy to discuss the AI-assisted workflow behind the paper as well.
+      </div>
+
       <p>
         <a href="dml_dynamic_panel.pdf" download style="font-weight: 600;">[Download PDF]</a>
       </p>
@@ -281,6 +327,11 @@
       <p class="muted">
         Investigated how intermediary balance-sheet health acts as an "on/off switch" for sentiment-driven price crashes using a two-state Markov Regime Switching model.
       </p>
+
+      <div class="paper-note">
+        Independent working paper. AI tools were used in a supporting role during parts of the workflow, but the underlying questions, synthesis, and conclusions are my own and the project should be read as exploratory work in progress. I welcome comments on the paper itself and am glad to talk about the AI-assisted research process if helpful.
+      </div>
+
       <a href="https://github.com/lucas-ms1">GitHub (repo link TBD) →</a>
       <div>
         <span class="pill">Market Microstructure</span> <span class="pill">Asset Pricing</span> <span class="pill">STATA/R</span>
@@ -288,164 +339,156 @@
     </div>
   </section>
 
-  <!-- NEW SECTION: fun/misc work -->
   <section id="misc" class="card">
     <h2>Notes, Competitions & Miscellany</h2>
     <p class="muted" style="margin-bottom: 30px;">
       Shorter writeups and “for-fun” work: contest solutions, modeling competitions, and exploratory notes.
     </p>
- <div class="project-item">
-  <h3>MCM/ICM — Modeling Competition Submissions (Problems C & F)</h3>
 
-  <p class="muted" style="margin-bottom: 10px;">
-    Two full submissions from the MCM/ICM modeling competition:
-  </p>
+    <div class="project-item">
+      <h3>MCM/ICM — Modeling Competition Submissions (Problems C & F)</h3>
 
-  <ul class="muted" style="margin-top: 0; margin-bottom: 14px; padding-left: 18px;">
-    <li style="margin-bottom: 6px;">
-      <strong>Problem F (Generative AI & the Workforce):</strong>
-      Build a tasks-based model to project how GenAI shifts occupational demand under multiple scenarios,
-      then translate results into institution-specific recommendations.
-    </li>
-    <li>
-      <strong>Problem C (Data With The Stars):</strong>
-      Infer weekly fan vote shares (latent) from judges’ scores and elimination outcomes; compare
-      rank vs. percent vote-combination rules; quantify drivers of judges vs. fans; and propose/evaluate
-      a better voting system.
-    </li>
-  </ul>
-
-  <!-- ===================== -->
-  <!-- Problem F PDF -->
-  <!-- ===================== -->
-  <div style="margin-top: 6px;">
-    <div style="font-weight: 700; margin-bottom: 6px;">Problem F — GenAI & Occupational Demand</div>
-
-    <p style="margin: 0 0 10px 0;">
-      <!-- NOTE: file name contains spaces; keep this URL-encoded OR rename the file to remove spaces -->
-      <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
-      <span class="muted" style="margin-left: 10px;">
-        (<a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
-      </span>
-    </p>
-
-    <iframe
-      src="Modeling%20Comp%20Copy.pdf?v=2026-02-16"
-      width="100%"
-      height="400px"
-      loading="lazy"
-      title="MCM/ICM Submission — Problem F (PDF)">
-      <p>
-        Your browser can’t display embedded PDFs.
-        <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16">Click here to open the PDF.</a>
+      <p class="muted" style="margin-bottom: 10px;">
+        Two full submissions from the MCM/ICM modeling competition:
       </p>
-    </iframe>
-  </div>
 
-  <!-- ===================== -->
-  <!-- Problem C PDF -->
-  <!-- ===================== -->
-  <div style="margin-top: 18px;">
-    <div style="font-weight: 700; margin-bottom: 6px;">Problem C — Data With The Stars</div>
+      <ul class="muted" style="margin-top: 0; margin-bottom: 14px; padding-left: 18px;">
+        <li style="margin-bottom: 6px;">
+          <strong>Problem F (Generative AI & the Workforce):</strong>
+          Build a tasks-based model to project how GenAI shifts occupational demand under multiple scenarios,
+          then translate results into institution-specific recommendations.
+        </li>
+        <li>
+          <strong>Problem C (Data With The Stars):</strong>
+          Infer weekly fan vote shares (latent) from judges’ scores and elimination outcomes; compare
+          rank vs. percent vote-combination rules; quantify drivers of judges vs. fans; and propose/evaluate
+          a better voting system.
+        </li>
+      </ul>
 
-    <p style="margin: 0 0 10px 0;">
-      <a href="MCM_Report.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
-      <span class="muted" style="margin-left: 10px;">
-        (<a href="MCM_Report.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
-      </span>
-    </p>
+      <div style="margin-top: 6px;">
+        <div style="font-weight: 700; margin-bottom: 6px;">Problem F — GenAI & Occupational Demand</div>
 
-    <iframe
-      src="MCM_Report.pdf?v=2026-02-16"
-      width="100%"
-      height="400px"
-      loading="lazy"
-      title="MCM/ICM Submission — Problem C (PDF)">
-      <p>
-        Your browser can’t display embedded PDFs.
-        <a href="MCM_Report.pdf?v=2026-02-16">Click here to open the PDF.</a>
+        <p style="margin: 0 0 10px 0;">
+          <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
+          <span class="muted" style="margin-left: 10px;">
+            (<a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
+          </span>
+        </p>
+
+        <iframe
+          src="Modeling%20Comp%20Copy.pdf?v=2026-02-16"
+          width="100%"
+          height="400px"
+          loading="lazy"
+          title="MCM/ICM Submission — Problem F (PDF)">
+          <p>
+            Your browser can’t display embedded PDFs.
+            <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16">Click here to open the PDF.</a>
+          </p>
+        </iframe>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <div style="font-weight: 700; margin-bottom: 6px;">Problem C — Data With The Stars</div>
+
+        <p style="margin: 0 0 10px 0;">
+          <a href="MCM_Report.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
+          <span class="muted" style="margin-left: 10px;">
+            (<a href="MCM_Report.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
+          </span>
+        </p>
+
+        <iframe
+          src="MCM_Report.pdf?v=2026-02-16"
+          width="100%"
+          height="400px"
+          loading="lazy"
+          title="MCM/ICM Submission — Problem C (PDF)">
+          <p>
+            Your browser can’t display embedded PDFs.
+            <a href="MCM_Report.pdf?v=2026-02-16">Click here to open the PDF.</a>
+          </p>
+        </iframe>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <span class="pill">MCM/ICM</span>
+        <span class="pill">Modeling</span>
+
+        <span class="pill">Problem F</span>
+        <span class="pill">Labor Econ</span>
+        <span class="pill">O*NET</span>
+        <span class="pill">BLS</span>
+
+        <span class="pill">Problem C</span>
+        <span class="pill">Voting Systems</span>
+        <span class="pill">Choice Modeling</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <h3>Measure Theory — Course Notes</h3>
+
+      <p class="muted">
+        My course notes for measure theory (based on Sheldon Axler's <em>Measure, Integration, and Real Analysis</em>).
       </p>
-    </iframe>
-  </div>
 
-  <div style="margin-top: 10px;">
-    <span class="pill">MCM/ICM</span>
-    <span class="pill">Modeling</span>
+      <p>
+        <a href="measuretheorynotes.pdf?v=2026-02-18" download style="font-weight: 600;">[Download PDF]</a>
+        <span class="muted" style="margin-left: 10px;">
+          (<a href="measuretheorynotes.pdf?v=2026-02-18" style="font-weight: 600;">open in browser</a>)
+        </span>
+      </p>
 
-    <span class="pill">Problem F</span>
-    <span class="pill">Labor Econ</span>
-    <span class="pill">O*NET</span>
-    <span class="pill">BLS</span>
+      <iframe
+        src="measuretheorynotes.pdf?v=2026-02-18"
+        width="100%"
+        height="500px"
+        loading="lazy"
+        title="Measure Theory Notes (PDF)">
+        <p>
+          Your browser can’t display embedded PDFs.
+          <a href="measuretheorynotes.pdf?v=2026-02-18">Click here to open the PDF.</a>
+        </p>
+      </iframe>
 
-    <span class="pill">Problem C</span>
-    <span class="pill">Voting Systems</span>
-    <span class="pill">Choice Modeling</span>
-  </div>
-</div>
-<div class="project-item">
-  <h3>Measure Theory — Course Notes</h3>
+      <div>
+        <span class="pill">Measure Theory</span>
+        <span class="pill">Real Analysis</span>
+        <span class="pill">Probability</span>
+      </div>
+    </div>
 
-  <p class="muted">
-    My course notes for measure theory (Based off Sheldon Axler's "Measure, Integration, and Real Analysis".
-  </p>
+    <div class="project-item">
+      <h3>My Favorite Putnam Exam Problems and Solutions</h3>
+      <p class="muted">
+        I took the Putnam this past year, and this document is a list of problems I enjoyed completing while preparing, as well as my favorite one from my attempt (2025 A3).
+      </p>
 
-  <p>
-    <a href="measuretheorynotes.pdf?v=2026-02-18" download style="font-weight: 600;">[Download PDF]</a>
-    <span class="muted" style="margin-left: 10px;">
-      (<a href="measuretheorynotes.pdf?v=2026-02-18" style="font-weight: 600;">open in browser</a>)
-    </span>
-  </p>
+      <p>
+        <a href="Putnam_A3-1.pdf" download style="font-weight: 600;">[Download PDF]</a>
+        <span class="muted" style="margin-left: 10px;">
+          (<a href="Putnam_A3-1.pdf" style="font-weight: 600;">open in browser</a>)
+        </span>
+      </p>
 
-  <iframe
-    src="measuretheorynotes.pdf?v=2026-02-18"
-    width="100%"
-    height="500px"
-    loading="lazy"
-    title="Measure Theory Notes (PDF)">
-    <p>
-      Your browser can’t display embedded PDFs.
-      <a href="measuretheorynotes.pdf?v=2026-02-18">Click here to open the PDF.</a>
-    </p>
-  </iframe>
+      <iframe
+        src="Putnam_A3-1.pdf"
+        width="100%"
+        height="400px"
+        loading="lazy"
+        title="Putnam A3 Solution (PDF)">
+        <p>
+          Your browser can’t display embedded PDFs.
+          <a href="Putnam_A3-1.pdf">Click here to open the PDF.</a>
+        </p>
+      </iframe>
 
-  <div>
-    <span class="pill">Measure Theory</span>
-    <span class="pill">Real Analysis</span>
-    <span class="pill">Probability</span>
-  </div>
-</div>
-
-   <div class="project-item">
-  <h3>My favorite Putnam Exam Problems and Solutions</h3>
-  <p class="muted">
-    I took the Putnam this past year and this document is a list of problems I enjoyed completing while preparing, as well as my favorite one from my attempt (2025 -A3).
-  </p>
-
-  <p>
-    <a href="Putnam_A3-1.pdf" download style="font-weight: 600;">[Download PDF]</a>
-    <span class="muted" style="margin-left: 10px;">
-      (<a href="Putnam_A3-1.pdf" style="font-weight: 600;">open in browser</a>)
-    </span>
-  </p>
-
-  <iframe
-    src="Putnam_A3-1.pdf"
-    width="100%"
-    height="400px"
-    loading="lazy"
-    title="Putnam A3 Solution (PDF)">
-    <p>
-      Your browser can’t display embedded PDFs.
-      <a href="Putnam_A3-1.pdf">Click here to open the PDF.</a>
-    </p>
-  </iframe>
-
-  <div>
-    <span class="pill">Putnam</span>
-  </div>
-</div>
-
-  
+      <div>
+        <span class="pill">Putnam</span>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="card">
