@@ -1,0 +1,249 @@
+{
+  "project": "Macro Model Solver",
+  "slug": "macro-model-solver",
+  "repo_url": "https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver.git",
+  "repo_commit": "f38b41f93992785ab12bb938f82a491856810d5b",
+  "exported_at": "2026-03-12T01:07:38.751168+00:00",
+  "scenario_notes": "Empirical/calibrated preset when detectable; otherwise default widget values.",
+  "detected": {
+    "model_widget_label": "Select Model",
+    "preset_widget_label": null,
+    "empirical_option": null
+  },
+  "models": [
+    {
+      "id": "model-1-consumption-savings",
+      "label": "Model 1: Consumption-Savings",
+      "parameters": {
+        "Theme": "Light",
+        "advanced_mode_enabled": false,
+        "Advanced mode": false,
+        "Select Model": "Model 1: Consumption-Savings",
+        "Discount factor (beta)": 0.95,
+        "open_crra_estimator_model1": false,
+        "Open estimator": false,
+        "sigma_slider": 2.0,
+        "Risk aversion (sigma)": 2.0,
+        "manual_p00_model1": 0.9,
+        "P(Low | Low)": 0.9,
+        "manual_p11_model1": 0.9,
+        "P(High | High)": 0.9,
+        "Interest rate (r)": 0.03,
+        "Initial wealth": 5.0,
+        "Grid size (n_a)": 200,
+        "Periods": 200,
+        "Random seed": 42,
+        "Period 1 shock": "High",
+        "Period 2 shock": "High",
+        "Period 3 shock": "Low",
+        "Forecast horizon (periods after chosen shocks)": 10
+      },
+      "outputs": [
+        {
+          "type": "plotly",
+          "title": "Model 1: Consumption-Savings Output 20",
+          "caption": "",
+          "path": "assets/20-model-1-consumption-savings-output-20.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 1: Consumption-Savings Output 21",
+          "caption": "",
+          "path": "assets/21-model-1-consumption-savings-output-21.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 1: Consumption-Savings Output 24",
+          "caption": "",
+          "path": "assets/24-model-1-consumption-savings-output-24.html",
+          "height": 560
+        },
+        {
+          "type": "table",
+          "title": "Model 1: Consumption-Savings Output 27",
+          "caption": "",
+          "path": "assets/27-model-1-consumption-savings-output-27.html",
+          "height": 520
+        },
+        {
+          "type": "plotly",
+          "title": "Model 1: Consumption-Savings Output 36",
+          "caption": "",
+          "path": "assets/36-model-1-consumption-savings-output-36.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 1: Consumption-Savings Output 41",
+          "caption": "",
+          "path": "assets/41-model-1-consumption-savings-output-41.html",
+          "height": 560
+        }
+      ]
+    },
+    {
+      "id": "model-2-robinson-crusoe",
+      "label": "Model 2: Robinson Crusoe",
+      "parameters": {
+        "Theme": "Light",
+        "advanced_mode_enabled": false,
+        "Advanced mode": false,
+        "Select Model": "Model 2: Robinson Crusoe",
+        "Discount factor (beta)": 0.95,
+        "open_crra_estimator_model2": false,
+        "Open estimator": false,
+        "sigma_slider": 2.0,
+        "Risk aversion (sigma)": 2.0,
+        "manual_p00_model2": 0.9,
+        "P(Low | Low)": 0.9,
+        "manual_p11_model2": 0.9,
+        "P(High | High)": 0.9,
+        "Capital share (alpha)": 0.36,
+        "Depreciation (delta)": 0.1,
+        "Grid size (n_k)": 200,
+        "Periods": 200,
+        "Random seed": 42,
+        "Period 1 shock": "High",
+        "Period 2 shock": "High",
+        "Period 3 shock": "Low",
+        "Forecast horizon (periods after chosen shocks)": 10
+      },
+      "outputs": [
+        {
+          "type": "plotly",
+          "title": "Model 2: Robinson Crusoe Output 20",
+          "caption": "",
+          "path": "assets/20-model-2-robinson-crusoe-output-20.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 2: Robinson Crusoe Output 21",
+          "caption": "",
+          "path": "assets/21-model-2-robinson-crusoe-output-21.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 2: Robinson Crusoe Output 24",
+          "caption": "",
+          "path": "assets/24-model-2-robinson-crusoe-output-24.html",
+          "height": 560
+        },
+        {
+          "type": "table",
+          "title": "Model 2: Robinson Crusoe Output 27",
+          "caption": "",
+          "path": "assets/27-model-2-robinson-crusoe-output-27.html",
+          "height": 520
+        },
+        {
+          "type": "plotly",
+          "title": "Model 2: Robinson Crusoe Output 36",
+          "caption": "",
+          "path": "assets/36-model-2-robinson-crusoe-output-36.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 2: Robinson Crusoe Output 41",
+          "caption": "",
+          "path": "assets/41-model-2-robinson-crusoe-output-41.html",
+          "height": 560
+        }
+      ]
+    },
+    {
+      "id": "model-3-labor-supply",
+      "label": "Model 3: Labor Supply",
+      "parameters": {
+        "Theme": "Light",
+        "advanced_mode_enabled": false,
+        "Advanced mode": false,
+        "Select Model": "Model 3: Labor Supply",
+        "Discount factor (beta)": 0.95,
+        "open_crra_estimator_model3": false,
+        "Open estimator": false,
+        "sigma_slider": 2.0,
+        "Risk aversion (sigma)": 2.0,
+        "manual_p00_model3": 0.9,
+        "P(Low | Low)": 0.9,
+        "manual_p11_model3": 0.9,
+        "P(High | High)": 0.9,
+        "Interest rate (r)": 0.03,
+        "Leisure weight (psi)": 1.0,
+        "Leisure curvature (nu)": 2.0,
+        "Include assets": true,
+        "Initial wealth (Model 3)": 5.0,
+        "Grid size (n_a)": 150,
+        "Labor grid (n_L)": 60,
+        "Periods": 200,
+        "Random seed": 42,
+        "Period 1 shock": "High",
+        "Period 2 shock": "High",
+        "Period 3 shock": "Low",
+        "Forecast horizon (periods after chosen shocks)": 10
+      },
+      "outputs": [
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 20",
+          "caption": "",
+          "path": "assets/20-model-3-labor-supply-output-20.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 21",
+          "caption": "",
+          "path": "assets/21-model-3-labor-supply-output-21.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 22",
+          "caption": "",
+          "path": "assets/22-model-3-labor-supply-output-22.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 23",
+          "caption": "",
+          "path": "assets/23-model-3-labor-supply-output-23.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 26",
+          "caption": "",
+          "path": "assets/26-model-3-labor-supply-output-26.html",
+          "height": 560
+        },
+        {
+          "type": "table",
+          "title": "Model 3: Labor Supply Output 29",
+          "caption": "",
+          "path": "assets/29-model-3-labor-supply-output-29.html",
+          "height": 520
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 40",
+          "caption": "",
+          "path": "assets/40-model-3-labor-supply-output-40.html",
+          "height": 560
+        },
+        {
+          "type": "plotly",
+          "title": "Model 3: Labor Supply Output 45",
+          "caption": "",
+          "path": "assets/45-model-3-labor-supply-output-45.html",
+          "height": 560
+        }
+      ]
+    }
+  ]
+}

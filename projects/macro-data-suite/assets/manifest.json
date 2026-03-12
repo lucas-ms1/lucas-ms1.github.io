@@ -1,0 +1,63 @@
+{
+  "project": "Macro Data Suite",
+  "slug": "macro-data-suite",
+  "repo_url": "https://github.com/lucas-ms1/Macro-Project-1-Data-Suite.git",
+  "repo_commit": "e1ebde2f4423e2a881e64451aeb3d06a4853632f",
+  "exported_at": "2026-03-12T01:07:33.351260+00:00",
+  "scenario_notes": "Pipeline export: FRED CPIAUCSL over the last 365 days; recipes: inflation_yoy, rolling_zscore (12m), ar1, optional forecast_arima.",
+  "data_snapshots": [
+    "assets/fred_CPIAUCSL_2016-03-13_to_2026-03-11.csv",
+    "assets/inflation_yoy_CPIAUCSL_2016-03-13_to_2026-03-11.csv",
+    "assets/rolling_zscore_inflation_yoy_CPIAUCSL_2016-03-13_to_2026-03-11.csv"
+  ],
+  "widget_values": {
+    "mode": "Econ",
+    "series_id": "CPIAUCSL",
+    "start_date": "2016-03-13",
+    "end_date": "2026-03-11"
+  },
+  "outputs": [
+    {
+      "type": "plotly",
+      "title": "CPI level (CPIAUCSL)",
+      "caption": "",
+      "path": "assets/01-cpi-level-cpiaucsl.html",
+      "height": 560
+    },
+    {
+      "type": "plotly",
+      "title": "Inflation YoY (%)",
+      "caption": "",
+      "path": "assets/02-inflation-yoy.html",
+      "height": 560
+    },
+    {
+      "type": "plotly",
+      "title": "Inflation YoY (z-score, 12m rolling)",
+      "caption": "",
+      "path": "assets/03-inflation-yoy-z-score-12m-rolling.html",
+      "height": 560
+    },
+    {
+      "type": "plotly",
+      "title": "ARIMA forecast (inflation_yoy)",
+      "caption": "",
+      "path": "assets/04-arima-forecast-inflation-yoy.html",
+      "height": 560
+    },
+    {
+      "type": "table",
+      "title": "Summary statistics",
+      "caption": "",
+      "path": "assets/summary-stats.html",
+      "height": 520
+    },
+    {
+      "type": "table",
+      "title": "AR(1) fit (inflation_yoy)",
+      "caption": "",
+      "path": "assets/ar1-results.html",
+      "height": 520
+    }
+  ]
+}

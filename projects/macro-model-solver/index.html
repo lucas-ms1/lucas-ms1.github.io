@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Macro Model Solver (Static Demo) | Lucas Sneller</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1b261b;
+      --accent: #2d5a27;
+      --accent-hover: #1e3d1a;
+      --muted: #4f5d4e;
+      --bg: #f2f4ef;
+      --card-bg: #ffffff;
+      --nav-bg: #dce3d5;
+      --pill-bg: #e8ede4;
+      --border: #ced6c4;
+      --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      max-width: 980px;
+      margin: 60px auto;
+      padding: 0 24px;
+      line-height: 1.6;
+      color: var(--primary);
+      background-color: var(--bg);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: 0.2s; font-weight: 600; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 8px;
+      border-radius: 50px;
+      display: inline-flex;
+      gap: 5px;
+      margin: 14px 0 22px 0;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 8px 16px;
+      border-radius: 25px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: white !important;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(45, 90, 39, 0.2);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 18px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .muted { color: var(--muted); font-size: 0.96rem; }
+
+    .demo-banner {
+      border: 1px solid rgba(45, 90, 39, 0.35);
+      background: linear-gradient(180deg, rgba(45, 90, 39, 0.12), rgba(45, 90, 39, 0.05));
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 12px 0 18px 0;
+    }
+    .demo-banner strong { color: var(--accent); }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 18px 0;
+    }
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: rgba(45, 90, 39, 0.6);
+      box-shadow: 0 2px 8px rgba(45, 90, 39, 0.15);
+    }
+
+    .output-block { margin-top: 18px; }
+    .output-block h3 { margin-bottom: 6px; }
+    .output-caption { margin: 0 0 10px 0; }
+    iframe {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #f8faf6;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      overflow: auto;
+    }
+
+    .param-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-top: 10px;
+    }
+    .param-table td {
+      padding: 6px 8px;
+      border-top: 1px solid var(--pill-bg);
+      vertical-align: top;
+    }
+    .param-table td:first-child {
+      width: 40%;
+      color: var(--muted);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="card">
+    <h1>Macro Model Solver — Static Demo</h1>
+    <p class="muted">A GitHub Pages–friendly preview of the Streamlit app (precomputed outputs only).</p>
+
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../macro-data-suite/">Macro Data Suite Demo</a>
+      <a href="https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver" target="_blank" rel="noopener noreferrer">Repo</a>
+    </nav>
+
+    <div class="demo-banner" role="note" aria-label="Static demo notice">
+      <strong>Static demo / preview:</strong>
+      this page embeds precomputed plots and tables exported from the Streamlit app.
+      You can interact with the Plotly charts (hover/zoom/pan), but you <em>cannot</em> change parameters or re-solve models here.
+    </div>
+
+    <p class="muted" id="export-meta">Loading export metadata…</p>
+  </header>
+
+  <section class="card">
+    <h2>What this tool does</h2>
+    <p class="muted">
+      <strong>Macro Model Solver</strong> provides an interactive interface for solving and visualizing canonical macroeconomic models.
+      The live app lets you switch between multiple models and inspect implied dynamics and steady-state relationships.
+      This static page mirrors that structure with three client-side tabs (one per model), using the app’s default parameterization at export time.
+    </p>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li><strong>Model 1 — Consumption-Savings:</strong> CRRA utility with an exogenous income shock.</li>
+      <li><strong>Model 2 — Robinson Crusoe:</strong> capital accumulation with a TFP shock.</li>
+      <li><strong>Model 3 — Labor Supply:</strong> labor/leisure choice with a wage shock.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Methodology (what “solving” means)</h2>
+    <p class="muted">
+      For each model, the app takes a parameterization (in this demo: the app’s default parameters at export time),
+      computes the relevant equilibrium/solution objects (via value function iteration in the interactive app), and then visualizes outcomes
+      such as policy functions and simulated paths.
+    </p>
+    <p class="muted">
+      The figures below are <em>not</em> screenshots; they are exported Plotly objects, so you can hover and zoom to inspect values.
+      Any differences between this demo and the live app typically come from changed defaults, updated packages, or upstream data revisions.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Choose a model</h2>
+    <div id="model-tabs" class="tabs" aria-label="Model tabs"></div>
+    <div id="model-params"></div>
+  </section>
+
+  <section class="card">
+    <h2>Precomputed outputs</h2>
+    <div id="outputs">
+      <p class="muted">Loading outputs…</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>How to run the full interactive version</h2>
+    <p class="muted">Clone the repo and run the Streamlit app locally:</p>
+    <pre><code>git clone https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver.git
+cd ECO-317-Project-2---Model-Solver
+
+python -m venv .venv
+# Windows:
+.venv\\Scripts\\Activate.ps1
+# macOS/Linux:
+# source .venv/bin/activate
+
+pip install -r requirements.txt
+streamlit run app.py</code></pre>
+    <p class="muted">
+      Repo: <a href="https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver" target="_blank" rel="noopener noreferrer">Macro Model Solver on GitHub</a>
+    </p>
+  </section>
+
+  <footer class="card">
+    <p class="muted" style="margin: 0;">© 2026 Lucas Sneller • Static demo page for portfolio display</p>
+  </footer>
+
+  <script>
+    function parseHashModelId() {
+      const m = (location.hash || '').match(/model=([^&]+)/);
+      return m ? decodeURIComponent(m[1]) : null;
+    }
+
+    function setHashModelId(id) {
+      const next = `#model=${encodeURIComponent(id)}`;
+      if (location.hash === next) return;
+      history.replaceState(null, '', next);
+    }
+
+    function renderParams(params) {
+      const entries = Object.entries(params || {}).filter(([k]) => k && typeof k === 'string');
+      if (!entries.length) return '';
+      const seen = new Set();
+      const rows = [];
+      for (const [k, v] of entries) {
+        if (seen.has(k)) continue;
+        if (typeof v === 'object') continue;
+        if (String(k).length > 80) continue;
+        seen.add(k);
+        rows.push(`<tr><td>${k}</td><td>${String(v)}</td></tr>`);
+        if (rows.length >= 14) break;
+      }
+      if (!rows.length) return '';
+      return `<p class="muted" style="margin: 0 0 8px 0;"><strong>Parameters used (export snapshot):</strong></p>
+        <table class="param-table" aria-label="Parameters table">${rows.join('')}</table>`;
+    }
+
+    async function loadManifest() {
+      const metaEl = document.getElementById('export-meta');
+      const tabsEl = document.getElementById('model-tabs');
+      const paramsEl = document.getElementById('model-params');
+      const outputsEl = document.getElementById('outputs');
+
+      let manifest;
+      try {
+        const res = await fetch('assets/manifest.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('manifest.json not found');
+        manifest = await res.json();
+      } catch (err) {
+        metaEl.textContent = 'Export metadata unavailable (manifest could not be loaded).';
+        outputsEl.innerHTML = '<p class="muted">Outputs could not be loaded. If you are viewing this locally, run a local HTTP server (GitHub Pages works by default).</p>';
+        return;
+      }
+
+      const exportedAt = manifest.exported_at ? new Date(manifest.exported_at).toLocaleString() : 'not exported yet';
+      const commit = manifest.repo_commit ? manifest.repo_commit.slice(0, 12) : '—';
+      metaEl.textContent = `Last exported: ${exportedAt} • Repo commit: ${commit}`;
+
+      const models = Array.isArray(manifest.models) ? manifest.models : [];
+      if (!models.length) {
+        tabsEl.innerHTML = '';
+        outputsEl.innerHTML = '<p class="muted">No models in manifest yet. Run the exporter.</p>';
+        return;
+      }
+
+      const initialId = parseHashModelId() || models[0].id;
+
+      function setActive(id) {
+        const model = models.find(m => m.id === id) || models[0];
+        setHashModelId(model.id);
+        for (const btn of tabsEl.querySelectorAll('button')) {
+          btn.classList.toggle('active', btn.dataset.id === model.id);
+        }
+        paramsEl.innerHTML = renderParams(model.parameters || {});
+
+        const outputs = Array.isArray(model.outputs) ? model.outputs : [];
+        if (!outputs.length) {
+          outputsEl.innerHTML = '<p class="muted">No outputs for this model yet. Run the exporter.</p>';
+          return;
+        }
+        outputsEl.innerHTML = '';
+        for (const item of outputs) {
+          const block = document.createElement('div');
+          block.className = 'output-block';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = item.title || 'Output';
+
+          const cap = document.createElement('p');
+          cap.className = 'muted output-caption';
+          cap.textContent = item.caption || '';
+
+          const frame = document.createElement('iframe');
+          frame.loading = 'lazy';
+          frame.title = item.title || 'Embedded output';
+          frame.height = item.height || 560;
+          frame.src = item.path || 'assets/placeholder.html';
+
+          block.appendChild(h3);
+          if ((item.caption || '').trim().length) block.appendChild(cap);
+          block.appendChild(frame);
+          outputsEl.appendChild(block);
+        }
+      }
+
+      tabsEl.innerHTML = '';
+      for (const m of models) {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn';
+        btn.type = 'button';
+        btn.dataset.id = m.id;
+        btn.textContent = m.label || m.id;
+        btn.addEventListener('click', () => setActive(m.id));
+        tabsEl.appendChild(btn);
+      }
+
+      window.addEventListener('hashchange', () => {
+        const id = parseHashModelId();
+        if (id) setActive(id);
+      });
+
+      setActive(initialId);
+    }
+
+    loadManifest();
+  </script>
+</body>
+</html>
+

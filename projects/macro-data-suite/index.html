@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Macro Data Suite (Static Demo) | Lucas Sneller</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1b261b;
+      --accent: #2d5a27;
+      --accent-hover: #1e3d1a;
+      --muted: #4f5d4e;
+      --bg: #f2f4ef;
+      --card-bg: #ffffff;
+      --nav-bg: #dce3d5;
+      --pill-bg: #e8ede4;
+      --border: #ced6c4;
+      --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      max-width: 980px;
+      margin: 60px auto;
+      padding: 0 24px;
+      line-height: 1.6;
+      color: var(--primary);
+      background-color: var(--bg);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: 0.2s; font-weight: 600; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 8px;
+      border-radius: 50px;
+      display: inline-flex;
+      gap: 5px;
+      margin: 14px 0 22px 0;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 8px 16px;
+      border-radius: 25px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: white !important;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(45, 90, 39, 0.2);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 18px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .muted { color: var(--muted); font-size: 0.96rem; }
+
+    .demo-banner {
+      border: 1px solid rgba(45, 90, 39, 0.35);
+      background: linear-gradient(180deg, rgba(45, 90, 39, 0.12), rgba(45, 90, 39, 0.05));
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 12px 0 18px 0;
+    }
+    .demo-banner strong { color: var(--accent); }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 14px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      margin: 8px 6px 0 0;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .output-block { margin-top: 18px; }
+    .output-block h3 { margin-bottom: 6px; }
+    .output-caption { margin: 0 0 10px 0; }
+    iframe {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #f8faf6;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="card">
+    <h1>Macro Data Suite — Static Demo</h1>
+    <p class="muted">A GitHub Pages–friendly preview of the Streamlit app (precomputed outputs only).</p>
+
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../macro-model-solver/">Macro Model Solver Demo</a>
+      <a href="https://github.com/lucas-ms1/Macro-Project-1-Data-Suite" target="_blank" rel="noopener noreferrer">Repo</a>
+    </nav>
+
+    <div class="demo-banner" role="note" aria-label="Static demo notice">
+      <strong>Static demo / preview:</strong>
+      this page embeds precomputed plots and tables exported from the Streamlit app.
+      You can interact with the Plotly charts (hover/zoom/pan), but you <em>cannot</em> change parameters or re-run downloads here.
+    </div>
+
+    <p class="muted" id="export-meta">Loading export metadata…</p>
+
+    <div aria-label="Tags">
+      <span class="pill">Time Series</span>
+      <span class="pill">Macro Data</span>
+      <span class="pill">Diagnostics</span>
+      <span class="pill">Python</span>
+      <span class="pill">Streamlit</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>What this tool does</h2>
+    <p class="muted">
+      <strong>Macro Data Suite</strong> is a streamlined interface for pulling a macroeconomic time series and running a consistent
+      set of descriptive diagnostics (plots + summary tables) that help you sanity-check a series before modeling it.
+      The live app is interactive (you choose a series, date window, transformations, and test settings); this page is a fixed snapshot.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Methodology (what you’re seeing)</h2>
+    <p class="muted">
+      The full project is built around a practical empirical workflow: (1) pull a time series, (2) transform it into a modeling-ready target
+      (e.g., inflation from a price index), (3) run a small library of “recipes” (summary stats, simple regressions, forecasts), and (4) visualize
+      what those outputs imply.
+    </p>
+    <p class="muted">
+      In this static demo, the exporter runs the project’s underlying pipeline on <strong>CPIAUCSL</strong> (CPI All Urban) over a multi-year window,
+      then embeds the resulting Plotly figures and tables. See the export metadata above for the exact date range and commit.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Precomputed outputs</h2>
+    <p class="muted">
+      These outputs are embedded from standalone HTML exports (Plotly uses <code>include_plotlyjs=True</code>), so charts remain interactive.
+    </p>
+    <div id="outputs">
+      <p class="muted">Loading outputs…</p>
+    </div>
+    <div id="data-snapshots" style="margin-top: 14px;"></div>
+  </section>
+
+  <section class="card">
+    <h2>How to interpret (quick guide)</h2>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li><strong>Levels vs. changes:</strong> macro series are often non-stationary in levels; growth rates / differences can be more stable.</li>
+      <li><strong>Serial dependence:</strong> autocorrelation patterns inform whether AR/VAR-style dynamics are plausible.</li>
+      <li><strong>Structural breaks:</strong> regime changes (policy, measurement, crises) can invalidate a single-parameter model fit.</li>
+      <li><strong>Missingness/outliers:</strong> can create spurious spikes in logs/differences and distort inference.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Limitations of this static preview</h2>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li>No parameter controls: the series, transformations, and tests are frozen.</li>
+      <li>No new downloads: this site stores only the exported artifacts (and optional CSV snapshots).</li>
+      <li>Reproducibility depends on upstream data APIs and package versions; the repo documents requirements.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>How to run the full interactive version</h2>
+    <p class="muted">Clone the repo and run the Streamlit app locally:</p>
+    <pre><code>git clone https://github.com/lucas-ms1/Macro-Project-1-Data-Suite.git
+cd Macro-Project-1-Data-Suite
+
+python -m venv .venv
+# Windows:
+.venv\\Scripts\\Activate.ps1
+# macOS/Linux:
+# source .venv/bin/activate
+
+pip install -U pip
+pip install -e ".[dev]"
+
+cp .env.example .env
+streamlit run streamlit_app.py</code></pre>
+    <p class="muted">
+      Repo: <a href="https://github.com/lucas-ms1/Macro-Project-1-Data-Suite" target="_blank" rel="noopener noreferrer">Macro Data Suite on GitHub</a>
+    </p>
+    <p class="muted">
+      Note: macro downloads/forecasts use optional extras (e.g. <code>.[macro]</code>, <code>.[forecast]</code>) as documented in the repo README.
+    </p>
+  </section>
+
+  <footer class="card">
+    <p class="muted" style="margin: 0;">© 2026 Lucas Sneller • Static demo page for portfolio display</p>
+  </footer>
+
+  <script>
+    async function loadManifest() {
+      const metaEl = document.getElementById('export-meta');
+      const outputsEl = document.getElementById('outputs');
+      const snapshotsEl = document.getElementById('data-snapshots');
+      try {
+        const res = await fetch('assets/manifest.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('manifest.json not found');
+        const manifest = await res.json();
+
+        const exportedAt = manifest.exported_at ? new Date(manifest.exported_at).toLocaleString() : 'not exported yet';
+        const commit = manifest.repo_commit ? manifest.repo_commit.slice(0, 12) : '—';
+        metaEl.textContent = `Last exported: ${exportedAt} • Repo commit: ${commit}`;
+
+        const outputs = Array.isArray(manifest.outputs) ? manifest.outputs : [];
+        if (!outputs.length) {
+          outputsEl.innerHTML = '<p class="muted">No outputs in manifest yet. Run the exporter.</p>';
+          return;
+        }
+
+        outputsEl.innerHTML = '';
+        for (const item of outputs) {
+          const block = document.createElement('div');
+          block.className = 'output-block';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = item.title || 'Output';
+
+          const cap = document.createElement('p');
+          cap.className = 'muted output-caption';
+          cap.textContent = item.caption || '';
+
+          const frame = document.createElement('iframe');
+          frame.loading = 'lazy';
+          frame.title = item.title || 'Embedded output';
+          frame.height = item.height || 560;
+          frame.src = item.path || 'assets/placeholder.html';
+
+          block.appendChild(h3);
+          if ((item.caption || '').trim().length) block.appendChild(cap);
+          block.appendChild(frame);
+          outputsEl.appendChild(block);
+        }
+
+        const snaps = Array.isArray(manifest.data_snapshots) ? manifest.data_snapshots : [];
+        if (snaps.length) {
+          snapshotsEl.innerHTML = '<p class="muted"><strong>Data snapshots (CSV):</strong> ' +
+            snaps.map(p => `<a href="${p}">${p.split('/').slice(-1)[0]}</a>`).join(' • ') +
+            '</p>';
+        } else {
+          snapshotsEl.innerHTML = '';
+        }
+      } catch (err) {
+        metaEl.textContent = 'Export metadata unavailable (manifest could not be loaded).';
+        outputsEl.innerHTML = '<p class="muted">Outputs could not be loaded. If you are viewing this locally, run a local HTTP server (GitHub Pages works by default).</p>';
+        snapshotsEl.innerHTML = '';
+      }
+    }
+    loadManifest();
+  </script>
+</body>
+</html>
+

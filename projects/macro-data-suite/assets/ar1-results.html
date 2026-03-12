@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AR(1) results</title>
+  <style>
+    :root {
+      --primary: #1b261b;
+      --muted: #4f5d4e;
+      --bg: #f2f4ef;
+      --card-bg: #ffffff;
+      --border: #ced6c4;
+      --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
+      --pill-bg: #e8ede4;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif;
+      margin: 0;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--primary);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 6px 0; font-size: 18px; }
+    .muted { color: var(--muted); margin: 0 0 12px 0; font-size: 13px; }
+    .df {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+    }
+    .df th, .df td {
+      border-top: 1px solid var(--pill-bg);
+      padding: 6px 8px;
+      vertical-align: top;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .df th:first-child, .df td:first-child { text-align: left; }
+    .df thead th {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>AR(1) results</h1>
+    <p class='muted'>Recipe output table</p>
+    <div style="overflow:auto; max-height: 70vh;">
+      <table class="dataframe df">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>term</th>
+      <th>coef</th>
+      <th>std_err</th>
+      <th>t</th>
+      <th>p_value</th>
+      <th>nobs</th>
+      <th>r2</th>
+      <th>adj_r2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>const</td>
+      <td>0.063661</td>
+      <td>0.073180</td>
+      <td>0.869914</td>
+      <td>3.863700e-01</td>
+      <td>105.0</td>
+      <td>0.965062</td>
+      <td>0.964723</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>y_lag1</td>
+      <td>0.981806</td>
+      <td>0.018407</td>
+      <td>53.339112</td>
+      <td>7.621325e-77</td>
+      <td>105.0</td>
+      <td>0.965062</td>
+      <td>0.964723</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</body>
+</html>

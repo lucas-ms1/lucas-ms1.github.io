@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Summary statistics</title>
+  <style>
+    :root {
+      --primary: #1b261b;
+      --muted: #4f5d4e;
+      --bg: #f2f4ef;
+      --card-bg: #ffffff;
+      --border: #ced6c4;
+      --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
+      --pill-bg: #e8ede4;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif;
+      margin: 0;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--primary);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 6px 0; font-size: 18px; }
+    .muted { color: var(--muted); margin: 0 0 12px 0; font-size: 13px; }
+    .df {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+    }
+    .df th, .df td {
+      border-top: 1px solid var(--pill-bg);
+      padding: 6px 8px;
+      vertical-align: top;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .df th:first-child, .df td:first-child { text-align: left; }
+    .df thead th {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Summary statistics</h1>
+    <p class='muted'>Describe() on inflation_yoy</p>
+    <div style="overflow:auto; max-height: 70vh;">
+      <table class="dataframe df">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>inflation_yoy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>106.0000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.3553</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.1208</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.1982</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.0070</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.6606</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.7137</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.9794</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</body>
+</html>

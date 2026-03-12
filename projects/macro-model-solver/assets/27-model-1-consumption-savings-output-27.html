@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Model 1: Consumption-Savings Output 27</title>
+  <style>
+    :root {
+      --primary: #1b261b;
+      --muted: #4f5d4e;
+      --bg: #f2f4ef;
+      --card-bg: #ffffff;
+      --border: #ced6c4;
+      --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
+      --pill-bg: #e8ede4;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif;
+      margin: 0;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--primary);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 6px 0; font-size: 18px; }
+    .muted { color: var(--muted); margin: 0 0 12px 0; font-size: 13px; }
+    .df {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+    }
+    .df th, .df td {
+      border-top: 1px solid var(--pill-bg);
+      padding: 6px 8px;
+      vertical-align: top;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .df th:first-child, .df td:first-child { text-align: left; }
+    .df thead th {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Model 1: Consumption-Savings Output 27</h1>
+    
+    <div style="overflow:auto; max-height: 70vh;">
+      <table class="dataframe df">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mean</th>
+      <th>Variance</th>
+      <th>Autocorrelation (lag-1)</th>
+      <th>Corr with y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>3.9745</td>
+      <td>5.4615</td>
+      <td>0.9894</td>
+      <td>0.3303</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>1.1081</td>
+      <td>0.0853</td>
+      <td>0.9434</td>
+      <td>0.7282</td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>1.0000</td>
+      <td>0.2500</td>
+      <td>0.7689</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</body>
+</html>
