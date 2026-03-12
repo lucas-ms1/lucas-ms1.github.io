@@ -200,31 +200,33 @@
 
   <section class="card">
     <h2>Full app features (interactive version)</h2>
-    <p class="muted" style="margin: 0 0 8px 0;"><strong>General features:</strong></p>
+    <p class="muted" style="margin: 0 0 8px 0;"><strong>Core modeling workflow:</strong></p>
     <ul class="muted" style="margin: 0; padding-left: 18px;">
-      <li>Three model modes: Consumption-Savings, Robinson Crusoe, and Labor Supply.</li>
-      <li>Core parameter controls in the sidebar (beta, sigma, transition probabilities, interest/technology/productivity inputs, grid size, simulation horizon, random seed).</li>
-      <li>Theme selection (Light/Dark), live reruns, and model-specific equations/intuition panels.</li>
-      <li>Model outputs include policy functions, simulations, moments, and tabular summaries.</li>
+      <li>Three infinite-horizon stochastic models solved by value function iteration: Consumption-Savings, Robinson Crusoe, and Labor Supply.</li>
+      <li>Structural calibration controls for preferences, technology, and shock processes, with policy-function and simulation outputs.</li>
+      <li>Empirical anchoring tools to compare model-implied moments and dynamics against data targets.</li>
+      <li>Transition-process calibration, including calibration of Markov transition matrices to empirical information (and optional uploaded transition matrices).</li>
     </ul>
-    <p class="muted" style="margin: 14px 0 8px 0;"><strong>Advanced features (explicit):</strong></p>
+    <p class="muted" style="margin: 14px 0 8px 0;"><strong>Advanced analysis modules:</strong></p>
     <ul class="muted" style="margin: 0; padding-left: 18px;">
-      <li><strong>Risk preference estimator:</strong> "Estimate your CRRA risk aversion coefficient (sigma)" workflow with posterior distribution, certainty-equivalent analytics, and "apply posterior median to model sigma".</li>
-      <li><strong>Advanced mode switch:</strong> unlocks extra diagnostics and analysis views beyond baseline outputs.</li>
-      <li><strong>Jump-to advanced outputs:</strong> Diagnostics, Risk preferences, Regime analytics, Distribution lab, Scorecard, Phase diagrams, Welfare, Calibration Lab.</li>
-      <li><strong>Empirical/data hooks:</strong> cached FRED downloads for empirical targets and file-upload inputs in advanced sections.</li>
-      <li><strong>Markov upload path:</strong> optional uploaded transition matrix support in advanced workflows.</li>
-      <li><strong>Calibration and welfare tooling:</strong> advanced scorecards and calibration-oriented comparisons in dedicated sections.</li>
+      <li><strong>Diagnostics:</strong> numerical and economic diagnostics for solution quality, stability, and plausibility checks.</li>
+      <li><strong>Risk Preferences:</strong> CRRA risk-aversion estimation from lottery-choice data, with posterior distribution and certainty-equivalent interpretation.</li>
+      <li><strong>Regime Analytics:</strong> shock-regime persistence and duration analysis tied to the estimated/calibrated transition structure.</li>
+      <li><strong>Distribution Lab:</strong> distributional outcomes across state space (not just mean paths), including heterogeneity in implied behavior.</li>
+      <li><strong>Scorecard:</strong> model-vs-data scorecards against empirical targets and stylized moments.</li>
+      <li><strong>Phase Diagrams:</strong> state-dynamics visualization to study local/global adjustment behavior and convergence patterns.</li>
+      <li><strong>Welfare:</strong> welfare comparisons across calibrations/policies using model-implied value metrics.</li>
+      <li><strong>Calibration Lab:</strong> structured calibration experiments, including fitting transition matrices and key parameters to empirical targets.</li>
     </ul>
   </section>
 
   <section class="card">
     <h2>What this static page does not include</h2>
     <ul class="muted" style="margin: 0; padding-left: 18px;">
-      <li>No live solve button: all outputs here are precomputed snapshots.</li>
-      <li>No interactive estimator flow: the risk-aversion estimation UI is described, not executable, on this page.</li>
-      <li>No advanced-mode toggling: only the exported state is shown.</li>
-      <li>No file upload or custom-run persistence from the browser.</li>
+      <li>No re-calibration from this page: all figures are precomputed snapshots from one export run.</li>
+      <li>No live estimation flow: risk-aversion estimation and transition-matrix fitting are described but not executable here.</li>
+      <li>No live model-vs-data recomputation after changing assumptions or targets.</li>
+      <li>No data upload pipeline from the browser (use the full app locally for empirical workflows).</li>
     </ul>
   </section>
 
