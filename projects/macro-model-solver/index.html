@@ -199,6 +199,27 @@
   </section>
 
   <section class="card">
+    <h2>Full app features (interactive version)</h2>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li>Model switching across all three VFI-based macro models from one interface.</li>
+      <li>Editable structural parameters (for example, beta, sigma, transition probabilities, and grid size).</li>
+      <li>An advanced mode with extra controls and diagnostics that are not always shown in the simplified view.</li>
+      <li>A built-in risk-aversion estimator workflow for backing out an implied CRRA coefficient from user inputs.</li>
+      <li>Reruns and recomputation after parameter changes, including updated plots/tables.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>What this static page does not include</h2>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li>No live solve button: all outputs here are precomputed snapshots.</li>
+      <li>No interactive estimator flow: the risk-aversion estimation UI is described, not executable, on this page.</li>
+      <li>No advanced-mode toggling: only the exported state is shown.</li>
+      <li>No file upload or custom-run persistence from the browser.</li>
+    </ul>
+  </section>
+
+  <section class="card">
     <h2>Choose a model</h2>
     <div id="model-tabs" class="tabs" aria-label="Model tabs"></div>
     <div id="model-params"></div>
