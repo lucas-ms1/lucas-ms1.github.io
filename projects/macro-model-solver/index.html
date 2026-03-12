@@ -200,12 +200,21 @@
 
   <section class="card">
     <h2>Full app features (interactive version)</h2>
+    <p class="muted" style="margin: 0 0 8px 0;"><strong>General features:</strong></p>
     <ul class="muted" style="margin: 0; padding-left: 18px;">
-      <li>Model switching across all three VFI-based macro models from one interface.</li>
-      <li>Editable structural parameters (for example, beta, sigma, transition probabilities, and grid size).</li>
-      <li>An advanced mode with extra controls and diagnostics that are not always shown in the simplified view.</li>
-      <li>A built-in risk-aversion estimator workflow for backing out an implied CRRA coefficient from user inputs.</li>
-      <li>Reruns and recomputation after parameter changes, including updated plots/tables.</li>
+      <li>Three model modes: Consumption-Savings, Robinson Crusoe, and Labor Supply.</li>
+      <li>Core parameter controls in the sidebar (beta, sigma, transition probabilities, interest/technology/productivity inputs, grid size, simulation horizon, random seed).</li>
+      <li>Theme selection (Light/Dark), live reruns, and model-specific equations/intuition panels.</li>
+      <li>Model outputs include policy functions, simulations, moments, and tabular summaries.</li>
+    </ul>
+    <p class="muted" style="margin: 14px 0 8px 0;"><strong>Advanced features (explicit):</strong></p>
+    <ul class="muted" style="margin: 0; padding-left: 18px;">
+      <li><strong>Risk preference estimator:</strong> "Estimate your CRRA risk aversion coefficient (sigma)" workflow with posterior distribution, certainty-equivalent analytics, and "apply posterior median to model sigma".</li>
+      <li><strong>Advanced mode switch:</strong> unlocks extra diagnostics and analysis views beyond baseline outputs.</li>
+      <li><strong>Jump-to advanced outputs:</strong> Diagnostics, Risk preferences, Regime analytics, Distribution lab, Scorecard, Phase diagrams, Welfare, Calibration Lab.</li>
+      <li><strong>Empirical/data hooks:</strong> cached FRED downloads for empirical targets and file-upload inputs in advanced sections.</li>
+      <li><strong>Markov upload path:</strong> optional uploaded transition matrix support in advanced workflows.</li>
+      <li><strong>Calibration and welfare tooling:</strong> advanced scorecards and calibration-oriented comparisons in dedicated sections.</li>
     </ul>
   </section>
 

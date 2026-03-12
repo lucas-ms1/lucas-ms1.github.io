@@ -181,9 +181,20 @@
     <ul class="muted" style="margin: 0; padding-left: 18px;">
       <li>Provider workflows for market, macro, and news data pulls in one Streamlit app.</li>
       <li>Series selection, date-range controls, merge options, and run-time configuration controls.</li>
-      <li>Recipe library for transformations, forecasting, and econometric outputs.</li>
+      <li>
+        Recipe library for transformations, forecasting, and econometric outputs:
+        <ul class="muted" style="margin-top: 8px; padding-left: 18px;">
+          <li><code>log_returns</code>, <code>rolling_zscore</code>, <code>sma</code>, <code>ema</code>, <code>rsi</code>, <code>macd</code>, <code>rolling_vol</code></li>
+          <li><code>inflation_yoy</code>, <code>inflation_mom_ann</code>, <code>growth_qoq_ann</code>, <code>spread</code>, <code>real_rate</code></li>
+          <li><code>ols</code>, <code>ar1</code>, <code>lp_irf</code></li>
+          <li><code>forecast_naive</code>, <code>forecast_drift</code>, <code>forecast_ets</code>, <code>forecast_arima</code>, <code>forecast_ridge_lags</code>, <code>forecast_rf_lags</code></li>
+          <li><code>news_sentiment</code> (FinBERT daily sentiment pipeline)</li>
+        </ul>
+      </li>
       <li>Job-style execution with refresh/rerun behavior and artifact tracking.</li>
-      <li>Optional indicator and sentiment-related processing pathways in the full app.</li>
+      <li>
+        News pull workflow includes query/language/max-record controls and optional sentiment scoring via FinBERT.
+      </li>
     </ul>
   </section>
 
