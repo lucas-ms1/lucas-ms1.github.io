@@ -27,7 +27,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -52,7 +51,7 @@
       padding: 42px 42px 40px 72px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      min-height: 360px;
+      min-height: 320px;
     }
 
     .hero::before {
@@ -81,47 +80,24 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.9rem, 6vw, 4.8rem);
-      line-height: 0.92;
+      font-size: clamp(4.2rem, 10vw, 7rem);
+      line-height: 0.9;
       font-weight: 600;
-      max-width: 760px;
+      max-width: none;
+      color: var(--cream);
     }
 
     .hero-subtitle {
       margin: 0;
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
-      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
       color: #f6ecd8;
       max-width: 760px;
     }
 
-    .hero-meta {
-      margin-top: 18px;
-      font-size: 1rem;
-      color: #f4ead4;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .hero-meta span {
-      opacity: 0.95;
-    }
-
-    .hero-topline {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #efe1bd;
-      margin-bottom: 16px;
-    }
-
     .hero-status {
-      margin-top: 24px;
+      margin-top: 18px;
       max-width: 760px;
       font-size: 1.02rem;
       color: #f4ead4;
@@ -337,6 +313,10 @@
       nav {
         border-radius: 22px;
       }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+      }
     }
   </style>
 </head>
@@ -344,25 +324,16 @@
   <div class="page">
     <header class="hero">
       <div class="hero-inner">
-        <div class="hero-topline">Lucas Sneller</div>
-        <div class="hero-line"></div>
+        <div class="hero-line" style="max-width: 760px;"></div>
 
-        <h1>Research at the intersection of economics, political behavior, and quantitative social science</h1>
+        <h1>Lucas Sneller</h1>
 
-        <div class="hero-line" style="max-width: 420px;"></div>
+        <div class="hero-line" style="max-width: 360px;"></div>
 
-        <p class="hero-subtitle">Incoming graduate study in QMSS and economics, grounded in undergraduate work across political science, philosophy, and economics</p>
-
-        <div class="hero-meta">
-          <span>Incoming Graduate Student at Columbia University (QMSS, Economics)</span>
-          <span>•</span>
-          <span>Research Assistant</span>
-          <span>•</span>
-          <span>Graduating Senior at Miami University</span>
-        </div>
+        <p class="hero-subtitle">Incoming Graduate Student at Columbia University (QMSS, Economics) • Research Assistant • Graduating Senior at Miami University</p>
 
         <p class="hero-status">
-          I am an incoming graduate student at Columbia University and a graduating senior at Miami University, where I study political science, philosophy, and economics. My work centers on how individual behavior, information, and strategic interaction scale into complex outcomes in markets and institutions.
+          I study political science, philosophy, and economics, with research interests in quantitative social science, econometrics, political behavior, and formal modeling.
         </p>
 
         <div class="hero-line"></div>
