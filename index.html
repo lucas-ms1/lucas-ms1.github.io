@@ -4,512 +4,700 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lucas Sneller</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-  :root {
-    /* Deep Earthy Palette */
-    --primary: #1b261b;        /* Deep Forest Green-Black */
-    --accent: #2d5a27;         /* Rich Leaf Green */
-    --accent-hover: #1e3d1a;   /* Darker Woods Green */
-    --muted: #4f5d4e;          /* Muted Moss Grey */
-    --bg: #f2f4ef;             /* Light Sage/Mist (Off-white) */
-    --card-bg: #ffffff;        
-    --nav-bg: #dce3d5;         /* Soft Meadow Green */
-    --pill-bg: #e8ede4;        /* Pale Leaf */
-    --border: #ced6c4;         /* Earthy Border */
-    --shadow: 0 4px 20px rgba(27, 38, 27, 0.08);
-  }
+    :root {
+      --bg: #e9e6de;
+      --paper: #f4f1ea;
+      --hero: #165f56;
+      --hero-deep: #114b44;
+      --ink: #173a35;
+      --ink-soft: #566965;
+      --line: #cfc7b5;
+      --cream: #f2e5c7;
+      --cream-soft: #e7dbc0;
+      --accent: #2a6a5f;
+      --accent-soft: #6f8d86;
+      --shadow: 0 10px 30px rgba(17, 45, 41, 0.08);
+      --radius: 18px;
+    }
 
-  body { 
-    font-family: 'Inter', system-ui, sans-serif; 
-    max-width: 850px; 
-    margin: 60px auto; 
-    padding: 0 24px; 
-    line-height: 1.6; 
-    color: var(--primary);
-    background-color: var(--bg);
-  }
+    * { box-sizing: border-box; }
 
-  h1, h2, h3 { 
-    font-family: 'Playfair Display', serif; 
-    margin-top: 0;
-    color: var(--primary);
-    letter-spacing: -0.01em;
-  }
+    html { scroll-behavior: smooth; }
 
-  a { color: var(--accent); text-decoration: none; transition: 0.2s; font-weight: 500; }
-  a:hover { color: var(--accent-hover); text-decoration: underline; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.65;
+    }
 
-  /* Navigation - More pronounced green */
-  nav { 
-    background: var(--nav-bg);
-    padding: 8px;
-    border-radius: 50px;
-    display: inline-flex;
-    gap: 5px;
-    margin: 20px 0 40px 0;
-    border: 1px solid var(--border);
-  }
-  
-  nav a { 
-    padding: 8px 16px;
-    border-radius: 25px;
-    color: var(--muted);
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 22px 56px;
+    }
 
-  nav a:hover { 
-    background: var(--accent); 
-    color: white !important; 
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(45, 90, 39, 0.2);
-  }
+    .hero {
+      position: relative;
+      background: var(--hero);
+      color: var(--cream);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 42px 42px 40px 72px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 360px;
+    }
 
-  /* Cards */
-  .card { 
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px; 
-    padding: 32px; 
-    margin: 24px 0; 
-    box-shadow: var(--shadow);
-  }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 42px;
+      background: var(--cream-soft);
+    }
 
-  .project-item {
-    padding-bottom: 24px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--pill-bg);
-  }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-  .project-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+    .hero-line {
+      height: 1px;
+      background: rgba(242, 229, 199, 0.75);
+      margin: 24px 0;
+    }
 
-  .muted { color: var(--muted); font-size: 0.95rem; }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
 
-  .pill { 
-    display: inline-block; 
-    padding: 4px 14px; 
-    background: var(--pill-bg);
-    border: 1px solid var(--border);
-    border-radius: 999px; 
-    margin: 8px 6px 0 0; 
-    font-size: 0.8rem; 
-    color: var(--accent);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
+    .hero h1 {
+      font-size: clamp(2.9rem, 6vw, 4.8rem);
+      line-height: 0.92;
+      font-weight: 600;
+      max-width: 760px;
+    }
 
-  .profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 4px solid white;
-    box-shadow: var(--shadow);
-  }
+    .hero-subtitle {
+      margin: 0;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+      color: #f6ecd8;
+      max-width: 760px;
+    }
 
-  iframe {
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-top: 15px;
-    background: white;
-  }
+    .hero-meta {
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #f4ead4;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
 
-  .info-note {
-    margin-top: 18px;
-    padding: 14px 16px;
-    border-left: 3px solid var(--accent);
-    background: #f8faf6;
-    color: var(--muted);
-    font-size: 0.93rem;
-    border-radius: 8px;
-  }
+    .hero-meta span {
+      opacity: 0.95;
+    }
 
-  .section-note {
-    background: var(--pill-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin: 0 0 28px 0;
-    color: var(--muted);
-    font-size: 0.94rem;
-  }
+    .hero-topline {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #efe1bd;
+      margin-bottom: 16px;
+    }
 
-  .paper-note {
-    margin: 12px 0 14px 0;
-    padding: 10px 12px;
-    border-left: 3px solid var(--accent);
-    background: #f8faf6;
-    color: var(--muted);
-    font-size: 0.9rem;
-    border-radius: 8px;
-  }
+    .hero-status {
+      margin-top: 24px;
+      max-width: 760px;
+      font-size: 1.02rem;
+      color: #f4ead4;
+    }
 
-  @media (max-width: 600px) {
-    body { margin: 30px auto; }
-    .card { padding: 24px; }
-  }
-</style>
+    .nav-wrap {
+      margin: 18px 0 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(244, 241, 234, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(17, 45, 41, 0.05);
+      backdrop-filter: blur(6px);
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.94rem;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: var(--hero);
+      color: var(--cream);
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--cream-soft);
+      border-radius: var(--radius);
+      padding: 30px 28px;
+      margin: 20px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 0.95;
+      color: var(--ink);
+    }
+
+    .section-rule {
+      height: 1px;
+      background: var(--line);
+      margin: 14px 0 18px;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: var(--ink-soft);
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .callout {
+      margin-top: 20px;
+      padding: 16px 18px;
+      background: #efeae0;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      color: var(--ink-soft);
+    }
+
+    .pills {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #ebe5d8;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project {
+      padding: 0 0 24px;
+      margin: 0 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .project h3 {
+      font-size: 1.8rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--ink-soft);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      margin: 10px 0 12px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .note-box {
+      background: #efeae0;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent-soft);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--ink-soft);
+      margin: 14px 0 18px;
+    }
+
+    ul {
+      margin: 12px 0 16px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      margin-top: 12px;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-space {
+      height: 8px;
+    }
+
+    @media (max-width: 740px) {
+      .page {
+        padding: 14px 12px 40px;
+      }
+
+      .hero {
+        padding: 30px 24px 30px 52px;
+        min-height: auto;
+      }
+
+      .hero::before {
+        width: 26px;
+      }
+
+      .section {
+        padding: 24px 20px;
+      }
+
+      .project h3 {
+        font-size: 1.45rem;
+      }
+
+      nav {
+        border-radius: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-  <header>
-    <img src="headshot.jpg" alt="Lucas Sneller" class="profile-img">
-    <h1>Lucas Sneller</h1>
-    <p class="muted">Political Science, Philosophy & Economics • Research: Mathematical Finance, Mean Field Games, Market Microstructure</p>
-    
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#course-projects">Course Projects</a>
-      <a href="#misc">Notes</a>
-      <a href="library.html">Library</a>
-      <a href="resume.html">Resume</a> 
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-topline">Lucas Sneller</div>
+        <div class="hero-line"></div>
 
-  <section id="about" class="card">
-    <h2>About</h2>
-    <p>
-      I am a senior at Miami University, where my studies in political science, philosophy, and economics have converged into a fascination with the "micro-to-macro" problem: how individual behavioral tendencies and personal biases aggregate into the complex, often unpredictable outcomes of dynamical systems. While my background began with foundational questions of coordination and legitimacy, I have since transitioned toward a technical framework utilizing mean field games, game theory, and rigorous mathematical modeling to explore why systems like financial markets and political landscapes fail to process information efficiently. My research approach is grounded in high-dimensional econometrics and computational modeling, focused on building modular pipelines that translate unstructured data into reproducible insights. Ultimately, I aim to apply this toolkit in a professional research setting as a pre-doctoral assistant before pursuing a PhD to further develop the methodological tools necessary for navigating our increasingly interconnected, high-dimensional world.
-    </p>
+        <h1>Research at the intersection of economics, political behavior, and quantitative social science</h1>
 
-    <div class="info-note">
-       I am deeply interested in the research possibilities opened up by AI, and AI tools. I believe that it is an incredible technology and when used carefully and responsibly, can unlock astounding levels of productivity, and allow for many of the tedious or time consuming tasks that act as barriers to research to be shortened by a considerable amount. Outside of my research experience with machine learning and NLP methods, I enjoy testing new research workflows assisted by these tools in different ways through IDE environments like Codex and Cursor, review and revision tools like refine.ink, or search and discovery tools like Google Scholar Labs. Used carefully, these tools have unlocked entire literatures, methods, and data that would have been much harder for me to access or iterate on quickly. If you are curious, feel free to ask me about how I use AI in my workflow, what tools I use most, or how it has helped boost my productivity.
-    </div>
+        <div class="hero-line" style="max-width: 420px;"></div>
 
-    <div aria-label="Interests">
-      <span class="pill">Mean Field Games</span>
-      <span class="pill">Stochastic Control</span>
-      <span class="pill">Market Microstructure</span>
-      <span class="pill">Behavioral Finance</span>
-      <span class="pill">Filtering (Kalman/EKF)</span>
-      <span class="pill">Python • LaTeX</span>
-    </div>
-  </section>
+        <p class="hero-subtitle">Incoming graduate study in QMSS and economics, grounded in undergraduate work across political science, philosophy, and economics</p>
 
-  <section id="resume" class="card">
-    <h2>Resume</h2>
-    <p>View my professional background on the dedicated resume page or download the PDF version below.</p>
-    <div style="display: flex; gap: 20px; align-items: center;">
-      <a href="resume.html" style="font-weight: 600;">View Resume Page →</a>
-      <a href="resume.pdf" download style="font-size: 0.9rem; color: var(--muted);">Download PDF</a>
-    </div>
-  </section>
+        <div class="hero-meta">
+          <span>Incoming Graduate Student at Columbia University (QMSS, Economics)</span>
+          <span>•</span>
+          <span>Research Assistant</span>
+          <span>•</span>
+          <span>Graduating Senior at Miami University</span>
+        </div>
 
-  <section id="projects" class="card">
-    <h2>Projects & Research</h2>
-    <p class="muted" style="margin-bottom: 30px;">Selected research and technical work.</p>
-    
-    <div class="project-item">
-      <h3>(Research Assistant): Butler Co. Parks — Economic Impact Report</h3>
-      <p class="muted">
-        Spatial econometric analysis quantifying the economic and health impacts of public parks.
-        Integrates GIS, time-series, and health data to estimate property value capitalization.
-        Built an interactive dashboard for client to explore results through dynamic visualizations.
-      </p>
+        <p class="hero-status">
+          I am an incoming graduate student at Columbia University and a graduating senior at Miami University, where I study political science, philosophy, and economics. My work centers on how individual behavior, information, and strategic interaction scale into complex outcomes in markets and institutions.
+        </p>
 
-      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-        <a href="https://github.com/lucas-ms1/Butler-Co-Parks-Economic-Impact-Report" style="font-weight: 600;">
-          View GitHub Repo →
-        </a>
-        <a href="https://lucas-ms1.github.io/Economic-Impact-Report-Dashboard/" style="font-size: 0.9rem; color: var(--muted);">
-          View Interactive Dashboard →
-        </a>
+        <div class="hero-line"></div>
       </div>
+    </header>
+
+    <div class="nav-wrap">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#course-projects">Course Projects</a>
+        <a href="#misc">Notes</a>
+        <a href="library.html">Library</a>
+        <a href="resume.html">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
 
-    <div class="project-item">
-      <h3>(Research Assistant): Bargaining Unit SOC Classification Project</h3>
-      <p class="muted">
-        Automated NLP pipeline to classify NLRB bargaining unit descriptions. 
-        Integrates Hybrid Retrieval and LLM-based classification with Prediction-Powered Inference (PPI).
-      </p>
-      <a href="https://github.com/lucas-ms1">View GitHub Repo →</a>
-    </div>
-
-    <div class="project-item">
-      <h3>(Research Assistant): DAAHO Metadata Pipeline</h3>
-      <p class="muted">
-        An automated Python pipeline for archival digitization. Extracts OCR text and Dublin Core-aligned LOC15 metadata from images using a hybrid Tesseract/GPT-4o Vision workflow. Features a tiered trust model and a Flask-based human review system.
-      </p>
-      <a href="https://github.com/lucas-ms1/daaho-metadata-pipeline">View GitHub Repo →</a>
-      <div>
-        <span class="pill">Python</span> <span class="pill">GPT-4o Vision</span> <span class="pill">OCR</span> <span class="pill">Flask</span>
-      </div>
-    </div>
-
-    <div class="section-note">
-     Outside of my classes and research assistant work, I pursue my own independent interests in applied probability, statistical inference, stochastic analysis, and related areas of mathematical finance and econometrics. Reading recent literature often inspires me to tackle problems that I find interesting on my own. Alongside being a fun way to spend my free time, this independent research has also become one of the best ways for me to build experience with the broader research process, including finding and working with data, implementing methods, coding, troubleshooting, and refining ideas. The working papers below are part of that independent and completely personal research process, and AI tools were used in a supporting role for brainstorming, implementation, debugging, and editing. These papers are meant to display my interests and love for research, not to present polished, peer-reviewed, or institutionally sponsored results.  
-    </div>
-
-    <div class="project-item">
-      <h3>(Working Paper): Mean Field Game Modeling of Overconfidence in Financial Markets</h3>
-      <p class="muted">
-        Draft on modeling overconfidence in financial markets via mean field games. Develops a dynamic MFG formulation with heterogeneous agents, stochastic control, and filtering (Kalman/EKF) to study how biased beliefs aggregate and affect market outcomes.
-      </p>
-
-      <div class="paper-note">
-        Independent working paper. This project grew out of my own reading in mean field games and behavioral finance; AI tools were used for coding implementation and editing support, while the framing and responsibility for the work remain my own. Comments and criticisms are very welcome, and I am happy to discuss the AI-assisted workflow behind the paper as well.
+    <section id="about" class="section">
+      <div class="section-header">
+        <div class="section-label">Overview</div>
+        <h2>About</h2>
+        <div class="section-rule"></div>
       </div>
 
       <p>
-        <a href="Lucas_Sneller_MFG_Overconfidence.pdf" download style="font-weight: 600;">[Download PDF]</a>
-        <span class="muted" style="margin-left: 10px;">
-          (<a href="Lucas_Sneller_MFG_Overconfidence.pdf" target="_blank" rel="noopener" style="font-weight: 600;">open in browser</a>)
-        </span>
-        <span class="muted" style="margin: 0 10px;">|</span>
-        <a href="https://github.com/lucas-ms1/Mean-Field-Game-Modeling-of-Overconfidence" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">View GitHub Repo →</a>
+        I am an incoming graduate student at Columbia University in the QMSS program, where I plan to continue developing my interests in economics, quantitative social science, and formal modeling. I am also a research assistant and graduating senior at Miami University, where I study political science, philosophy, and economics. My undergraduate work has brought together substantive questions about institutions, behavior, and coordination with increasingly technical interests in econometrics, computational modeling, and mathematical approaches to strategic interaction.
       </p>
 
-      <iframe
-        src="Lucas_Sneller_MFG_Overconfidence.pdf"
-        width="100%"
-        height="400px"
-        loading="lazy"
-        title="Mean Field Game Modeling of Overconfidence (PDF)">
-        <p>Your browser can’t display embedded PDFs. <a href="Lucas_Sneller_MFG_Overconfidence.pdf" target="_blank" rel="noopener">Click here to open the PDF.</a></p>
-      </iframe>
-      <div>
+      <p>
+        Across both my undergraduate research and independent projects, I am especially interested in the “micro-to-macro” problem: how individual behavioral tendencies, informational frictions, and strategic incentives aggregate into complex outcomes in markets and political systems. That interest has led me toward work in game theory, mean field games, market microstructure, applied econometrics, and related areas of quantitative social science.
+      </p>
+
+      <p>
+        More broadly, I enjoy building modular research workflows that translate messy or unstructured information into reproducible analysis. Whether working on archival metadata pipelines, NLP classification, spatial economic analysis, or independent work in mathematical finance and econometrics, I am most motivated by projects that combine substantive curiosity with rigorous empirical or formal tools.
+      </p>
+
+      <div class="callout">
+        I am especially interested in the research possibilities opened up by AI tools. Used carefully, they can compress tedious workflows, accelerate iteration, and make it easier to explore new methods, literatures, and data sources. In my own work, I have used AI-assisted tools to support coding, debugging, revision, and research discovery while keeping the substantive framing and responsibility for the work my own.
+      </div>
+
+      <div class="pills" aria-label="Interests">
+        <span class="pill">QMSS</span>
+        <span class="pill">Economics</span>
+        <span class="pill">Quantitative Social Science</span>
         <span class="pill">Mean Field Games</span>
-        <span class="pill">Stochastic Control</span>
-        <span class="pill">Kalman/EKF</span>
-        <span class="pill">Heterogeneous Agents</span>
+        <span class="pill">Econometrics</span>
+        <span class="pill">Market Microstructure</span>
         <span class="pill">Behavioral Finance</span>
         <span class="pill">Python</span>
+        <span class="pill">LaTeX</span>
       </div>
-    </div>
+    </section>
 
-    <div class="project-item">
-      <h3>(Working Paper): Double Machine Learning for Dynamic Panel Data</h3>
-      <p class="muted">
-        Developed a DML framework for inference in partially linear dynamic panels. Proposed a blocked-time cross-fitting scheme with time buffers to respect serial dependence.
-      </p>
-
-      <div class="paper-note">
-        Independent working paper. This project grew out of my own reading in econometrics and statistical inference; AI tools were used for coding implementation and editing support, while the framing and responsibility for the work remain my own. Comments and criticisms are very welcome, and I am happy to discuss the AI-assisted workflow behind the paper as well.
+    <section id="resume" class="section">
+      <div class="section-header">
+        <div class="section-label">Professional Materials</div>
+        <h2>Resume</h2>
+        <div class="section-rule"></div>
       </div>
 
-      <p>
-        <a href="dml_dynamic_panel.pdf" download style="font-weight: 600;">[Download PDF]</a>
-      </p>
-      <iframe src="dml_dynamic_panel.pdf" width="100%" height="400px" loading="lazy" title="Double Machine Learning for Dynamic Panel Data (PDF)"></iframe>
-      <div>
-        <span class="pill">Econometrics</span> <span class="pill">DML</span> <span class="pill">Python</span>
+      <p class="lead">View my background on the dedicated resume page or download the PDF version.</p>
+      <div class="project-links">
+        <a href="resume.html">View Resume Page →</a>
+        <a href="resume.pdf" download>Download PDF</a>
       </div>
-    </div>
+    </section>
 
-  </section>
-
-  <section id="course-projects" class="card">
-    <h2>Course Projects</h2>
-    <p class="muted" style="margin-bottom: 30px;">Static demos (GitHub Pages) with links to the full interactive Streamlit apps.</p>
-
-    <div class="project-item">
-      <h3>ECO 317: Macro Data Suite (Static Demo)</h3>
-      <p class="muted">
-        Streamlit-based macro time-series data + diagnostics tool. This is a static preview that embeds precomputed Plotly outputs and tables (no Python backend).
-      </p>
-      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-        <a href="projects/macro-data-suite/" style="font-weight: 600;">View Static Demo &rarr;</a>
-        <a href="https://github.com/lucas-ms1/Macro-Project-1-Data-Suite" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; color: var(--muted);">
-          View GitHub Repo &rarr;
-        </a>
+    <section id="projects" class="section">
+      <div class="section-header">
+        <div class="section-label">Selected Work</div>
+        <h2>Projects & Research</h2>
+        <div class="section-rule"></div>
       </div>
-      <div>
-        <span class="pill">Streamlit</span> <span class="pill">Plotly</span> <span class="pill">Time Series</span>
-      </div>
-    </div>
 
-    <div class="project-item">
-      <h3>ECO 317: Macro Model Solver (Static Demo)</h3>
-      <p class="muted">
-        Solve and visualize multiple macroeconomic models with an empirical/calibrated parameterization. Static preview includes three model tabs with precomputed interactive figures.
-      </p>
-      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-        <a href="projects/macro-model-solver/" style="font-weight: 600;">View Static Demo &rarr;</a>
-        <a href="https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; color: var(--muted);">
-          View GitHub Repo &rarr;
-        </a>
-      </div>
-      <div>
-        <span class="pill">Streamlit</span> <span class="pill">Plotly</span> <span class="pill">Macroeconomics</span>
-      </div>
-    </div>
+      <p class="lead">Selected research, technical work, and independent projects.</p>
 
-    <div class="section-note">
-      These pages are intentionally <strong>static snapshots</strong> for portfolio display. For the real interactive tools, use the repo links and run the Streamlit apps locally.
-    </div>
-  </section>
-
-  <section id="misc" class="card">
-    <h2>Notes, Competitions & Miscellany</h2>
-    <p class="muted" style="margin-bottom: 30px;">
-      Shorter writeups and “for-fun” work: contest solutions, modeling competitions, and exploratory notes.
-    </p>
-
-    <div class="project-item">
-      <h3>MCM/ICM — Modeling Competition Submissions (Problems C & F)</h3>
-
-      <p class="muted" style="margin-bottom: 10px;">
-        Two full submissions from the MCM/ICM modeling competition:
-      </p>
-
-      <ul class="muted" style="margin-top: 0; margin-bottom: 14px; padding-left: 18px;">
-        <li style="margin-bottom: 6px;">
-          <strong>Problem F (Generative AI & the Workforce):</strong>
-          Build a tasks-based model to project how GenAI shifts occupational demand under multiple scenarios,
-          then translate results into institution-specific recommendations.
-        </li>
-        <li>
-          <strong>Problem C (Data With The Stars):</strong>
-          Infer weekly fan vote shares (latent) from judges’ scores and elimination outcomes; compare
-          rank vs. percent vote-combination rules; quantify drivers of judges vs. fans; and propose/evaluate
-          a better voting system.
-        </li>
-      </ul>
-
-      <div style="margin-top: 6px;">
-        <div style="font-weight: 700; margin-bottom: 6px;">Problem F — GenAI & Occupational Demand</div>
-
-        <p style="margin: 0 0 10px 0;">
-          <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
-          <span class="muted" style="margin-left: 10px;">
-            (<a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
-          </span>
+      <div class="project">
+        <h3>(Research Assistant) Butler Co. Parks — Economic Impact Report</h3>
+        <p class="muted">
+          Spatial econometric analysis quantifying the economic and health impacts of public parks. Integrates GIS, time-series, and health data to estimate property value capitalization, with an interactive dashboard for exploratory review.
         </p>
+        <div class="project-links">
+          <a href="https://github.com/lucas-ms1/Butler-Co-Parks-Economic-Impact-Report">View GitHub Repo →</a>
+          <a href="https://lucas-ms1.github.io/Economic-Impact-Report-Dashboard/">View Interactive Dashboard →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>(Research Assistant) Bargaining Unit SOC Classification Project</h3>
+        <p class="muted">
+          Automated NLP pipeline to classify NLRB bargaining unit descriptions. Combines hybrid retrieval, LLM-assisted classification, and prediction-powered inference for scalable occupational coding.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/lucas-ms1">View GitHub Repo →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>(Research Assistant) DAAHO Metadata Pipeline</h3>
+        <p class="muted">
+          Automated Python pipeline for archival digitization. Extracts OCR text and Dublin Core-aligned LOC15 metadata from images using a hybrid Tesseract/GPT-4o Vision workflow, with a tiered trust model and human review interface.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/lucas-ms1/daaho-metadata-pipeline">View GitHub Repo →</a>
+        </div>
+        <div class="pills">
+          <span class="pill">Python</span>
+          <span class="pill">OCR</span>
+          <span class="pill">Vision Models</span>
+          <span class="pill">Flask</span>
+        </div>
+      </div>
+
+      <div class="note-box">
+        Outside of my classes and research assistant work, I also pursue independent interests in applied probability, statistical inference, stochastic analysis, mathematical finance, and econometrics. These working papers are personal research projects meant to reflect my interests and process, rather than polished or institutionally sponsored results.
+      </div>
+
+      <div class="project">
+        <h3>(Working Paper) Mean Field Game Modeling of Overconfidence in Financial Markets</h3>
+        <p class="muted">
+          Draft on modeling overconfidence in financial markets through a dynamic mean field game framework with heterogeneous agents, stochastic control, and filtering methods to study how biased beliefs aggregate and affect market outcomes.
+        </p>
+
+        <div class="note-box">
+          Independent working paper. AI tools were used in a supporting role for coding implementation and editing, while the framing and responsibility for the work remain my own.
+        </div>
+
+        <div class="project-links">
+          <a href="Lucas_Sneller_MFG_Overconfidence.pdf" download>[Download PDF]</a>
+          <a href="Lucas_Sneller_MFG_Overconfidence.pdf" target="_blank" rel="noopener">Open in Browser</a>
+          <a href="https://github.com/lucas-ms1/Mean-Field-Game-Modeling-of-Overconfidence" target="_blank" rel="noopener noreferrer">View GitHub Repo →</a>
+        </div>
+
+        <iframe
+          src="Lucas_Sneller_MFG_Overconfidence.pdf"
+          loading="lazy"
+          title="Mean Field Game Modeling of Overconfidence (PDF)">
+          <p>Your browser can’t display embedded PDFs. <a href="Lucas_Sneller_MFG_Overconfidence.pdf" target="_blank" rel="noopener">Click here to open the PDF.</a></p>
+        </iframe>
+
+        <div class="pills">
+          <span class="pill">Mean Field Games</span>
+          <span class="pill">Stochastic Control</span>
+          <span class="pill">Kalman / EKF</span>
+          <span class="pill">Behavioral Finance</span>
+          <span class="pill">Python</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>(Working Paper) Double Machine Learning for Dynamic Panel Data</h3>
+        <p class="muted">
+          Developed a double machine learning framework for inference in partially linear dynamic panels, including a blocked-time cross-fitting scheme with time buffers to respect serial dependence.
+        </p>
+
+        <div class="note-box">
+          Independent working paper. AI tools were used in a supporting role for coding implementation and editing, while the framing and responsibility for the work remain my own.
+        </div>
+
+        <div class="project-links">
+          <a href="dml_dynamic_panel.pdf" download>[Download PDF]</a>
+        </div>
+
+        <iframe
+          src="dml_dynamic_panel.pdf"
+          loading="lazy"
+          title="Double Machine Learning for Dynamic Panel Data (PDF)">
+        </iframe>
+
+        <div class="pills">
+          <span class="pill">Econometrics</span>
+          <span class="pill">DML</span>
+          <span class="pill">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="course-projects" class="section">
+      <div class="section-header">
+        <div class="section-label">Undergraduate Coursework</div>
+        <h2>Course Projects</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <p class="lead">Static demos with links to the full interactive apps and repositories.</p>
+
+      <div class="project">
+        <h3>ECO 317: Macro Data Suite (Static Demo)</h3>
+        <p class="muted">
+          Streamlit-based macro time-series data and diagnostics tool. This version is a static preview that embeds precomputed outputs for portfolio display.
+        </p>
+        <div class="project-links">
+          <a href="projects/macro-data-suite/">View Static Demo →</a>
+          <a href="https://github.com/lucas-ms1/Macro-Project-1-Data-Suite" target="_blank" rel="noopener noreferrer">View GitHub Repo →</a>
+        </div>
+        <div class="pills">
+          <span class="pill">Streamlit</span>
+          <span class="pill">Plotly</span>
+          <span class="pill">Time Series</span>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>ECO 317: Macro Model Solver (Static Demo)</h3>
+        <p class="muted">
+          Solver and visualization interface for several macroeconomic models with empirical or calibrated parameterization. Static preview includes precomputed interactive figures.
+        </p>
+        <div class="project-links">
+          <a href="projects/macro-model-solver/">View Static Demo →</a>
+          <a href="https://github.com/lucas-ms1/ECO-317-Project-2---Model-Solver" target="_blank" rel="noopener noreferrer">View GitHub Repo →</a>
+        </div>
+        <div class="pills">
+          <span class="pill">Streamlit</span>
+          <span class="pill">Plotly</span>
+          <span class="pill">Macroeconomics</span>
+        </div>
+      </div>
+
+      <div class="note-box">
+        These pages are intentionally static snapshots for portfolio display. The full interactive tools are available through the linked repositories.
+      </div>
+    </section>
+
+    <section id="misc" class="section">
+      <div class="section-header">
+        <div class="section-label">Additional Work</div>
+        <h2>Notes, Competitions & Miscellany</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <p class="lead">
+        Shorter writeups, competition submissions, and exploratory notes.
+      </p>
+
+      <div class="project">
+        <h3>MCM/ICM — Modeling Competition Submissions (Problems C & F)</h3>
+        <p class="muted">
+          Two full submissions from the MCM/ICM modeling competition:
+        </p>
+
+        <ul class="muted">
+          <li><strong>Problem F (Generative AI & the Workforce):</strong> built a tasks-based model to project how GenAI shifts occupational demand under multiple scenarios and translated results into institution-specific recommendations.</li>
+          <li><strong>Problem C (Data With The Stars):</strong> inferred latent weekly fan vote shares from judges’ scores and elimination outcomes, compared voting rules, and evaluated alternative mechanisms.</li>
+        </ul>
+
+        <div class="project-links">
+          <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16" download>Problem F PDF</a>
+          <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16">Open Problem F</a>
+        </div>
 
         <iframe
           src="Modeling%20Comp%20Copy.pdf?v=2026-02-16"
-          width="100%"
-          height="400px"
           loading="lazy"
           title="MCM/ICM Submission — Problem F (PDF)">
-          <p>
-            Your browser can’t display embedded PDFs.
-            <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16">Click here to open the PDF.</a>
-          </p>
+          <p>Your browser can’t display embedded PDFs. <a href="Modeling%20Comp%20Copy.pdf?v=2026-02-16">Click here to open the PDF.</a></p>
         </iframe>
-      </div>
 
-      <div style="margin-top: 18px;">
-        <div style="font-weight: 700; margin-bottom: 6px;">Problem C — Data With The Stars</div>
-
-        <p style="margin: 0 0 10px 0;">
-          <a href="MCM_Report.pdf?v=2026-02-16" download style="font-weight: 600;">[Download PDF]</a>
-          <span class="muted" style="margin-left: 10px;">
-            (<a href="MCM_Report.pdf?v=2026-02-16" style="font-weight: 600;">open in browser</a>)
-          </span>
-        </p>
+        <div class="project-links" style="margin-top: 18px;">
+          <a href="MCM_Report.pdf?v=2026-02-16" download>Problem C PDF</a>
+          <a href="MCM_Report.pdf?v=2026-02-16">Open Problem C</a>
+        </div>
 
         <iframe
           src="MCM_Report.pdf?v=2026-02-16"
-          width="100%"
-          height="400px"
           loading="lazy"
           title="MCM/ICM Submission — Problem C (PDF)">
-          <p>
-            Your browser can’t display embedded PDFs.
-            <a href="MCM_Report.pdf?v=2026-02-16">Click here to open the PDF.</a>
-          </p>
+          <p>Your browser can’t display embedded PDFs. <a href="MCM_Report.pdf?v=2026-02-16">Click here to open the PDF.</a></p>
         </iframe>
+
+        <div class="pills">
+          <span class="pill">MCM / ICM</span>
+          <span class="pill">Modeling</span>
+          <span class="pill">Labor Econ</span>
+          <span class="pill">Voting Systems</span>
+        </div>
       </div>
 
-      <div style="margin-top: 10px;">
-        <span class="pill">MCM/ICM</span>
-        <span class="pill">Modeling</span>
-
-        <span class="pill">Problem F</span>
-        <span class="pill">Labor Econ</span>
-        <span class="pill">O*NET</span>
-        <span class="pill">BLS</span>
-
-        <span class="pill">Problem C</span>
-        <span class="pill">Voting Systems</span>
-        <span class="pill">Choice Modeling</span>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <h3>Measure Theory — Course Notes</h3>
-
-      <p class="muted">
-        My course notes for measure theory (based on Sheldon Axler's <em>Measure, Integration, and Real Analysis</em>).
-      </p>
-
-      <p>
-        <a href="measuretheorynotes.pdf?v=2026-02-18" download style="font-weight: 600;">[Download PDF]</a>
-        <span class="muted" style="margin-left: 10px;">
-          (<a href="measuretheorynotes.pdf?v=2026-02-18" style="font-weight: 600;">open in browser</a>)
-        </span>
-      </p>
-
-      <iframe
-        src="measuretheorynotes.pdf?v=2026-02-18"
-        width="100%"
-        height="500px"
-        loading="lazy"
-        title="Measure Theory Notes (PDF)">
-        <p>
-          Your browser can’t display embedded PDFs.
-          <a href="measuretheorynotes.pdf?v=2026-02-18">Click here to open the PDF.</a>
+      <div class="project">
+        <h3>Measure Theory — Course Notes</h3>
+        <p class="muted">
+          Course notes for measure theory based on Sheldon Axler’s <em>Measure, Integration, and Real Analysis</em>.
         </p>
-      </iframe>
-
-      <div>
-        <span class="pill">Measure Theory</span>
-        <span class="pill">Real Analysis</span>
-        <span class="pill">Probability</span>
+        <div class="project-links">
+          <a href="measuretheorynotes.pdf?v=2026-02-18" download>[Download PDF]</a>
+          <a href="measuretheorynotes.pdf?v=2026-02-18">Open in Browser</a>
+        </div>
+        <iframe
+          src="measuretheorynotes.pdf?v=2026-02-18"
+          loading="lazy"
+          title="Measure Theory Notes (PDF)">
+          <p>Your browser can’t display embedded PDFs. <a href="measuretheorynotes.pdf?v=2026-02-18">Click here to open the PDF.</a></p>
+        </iframe>
+        <div class="pills">
+          <span class="pill">Measure Theory</span>
+          <span class="pill">Real Analysis</span>
+          <span class="pill">Probability</span>
+        </div>
       </div>
-    </div>
 
-    <div class="project-item">
-      <h3>My Favorite Putnam Exam Problems and Solutions</h3>
-      <p class="muted">
-        I took the Putnam this past year, and this document is a list of problems I enjoyed completing while preparing, as well as my favorite one from my attempt (2025 A3).
-      </p>
-
-      <p>
-        <a href="Putnam_A3-1.pdf" download style="font-weight: 600;">[Download PDF]</a>
-        <span class="muted" style="margin-left: 10px;">
-          (<a href="Putnam_A3-1.pdf" style="font-weight: 600;">open in browser</a>)
-        </span>
-      </p>
-
-      <iframe
-        src="Putnam_A3-1.pdf"
-        width="100%"
-        height="400px"
-        loading="lazy"
-        title="Putnam A3 Solution (PDF)">
-        <p>
-          Your browser can’t display embedded PDFs.
-          <a href="Putnam_A3-1.pdf">Click here to open the PDF.</a>
+      <div class="project">
+        <h3>My Favorite Putnam Exam Problems and Solutions</h3>
+        <p class="muted">
+          A short document collecting problems I especially enjoyed while preparing for the Putnam, including my favorite problem from my own attempt.
         </p>
-      </iframe>
-
-      <div>
-        <span class="pill">Putnam</span>
+        <div class="project-links">
+          <a href="Putnam_A3-1.pdf" download>[Download PDF]</a>
+          <a href="Putnam_A3-1.pdf">Open in Browser</a>
+        </div>
+        <iframe
+          src="Putnam_A3-1.pdf"
+          loading="lazy"
+          title="Putnam A3 Solution (PDF)">
+          <p>Your browser can’t display embedded PDFs. <a href="Putnam_A3-1.pdf">Click here to open the PDF.</a></p>
+        </iframe>
+        <div class="pills">
+          <span class="pill">Putnam</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:snellelm@miamioh.edu">snellelm@miamioh.edu</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/lucas-sneller-38b19124a/">lucas-sneller-38b19124a</a></p>
-  </section>
+    <section id="contact" class="section">
+      <div class="section-header">
+        <div class="section-label">Get In Touch</div>
+        <h2>Contact</h2>
+        <div class="section-rule"></div>
+      </div>
 
+      <div class="contact-grid">
+        <p>Email: <a href="mailto:snellelm@miamioh.edu">snellelm@miamioh.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/lucas-sneller-38b19124a/">lucas-sneller-38b19124a</a></p>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </div>
 </body>
 </html>
